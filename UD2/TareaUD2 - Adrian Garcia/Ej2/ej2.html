@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dado</title>
+        <script src="Ej2.js"></script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td><img src="images/one.png" width="100", height="100"></td>
+                <td id="face0" style="font-size: 100px;">0</td>
+            </tr>
+            <tr>
+                <td><img src="images/two.png" width="100", height="100"></td>
+                <td id="face1" style="font-size: 100px;">0</td>
+            </tr>
+            <tr>
+                <td><img src="images/three.png" width="100", height="100"></td>
+                <td id="face2" style="font-size: 100px;">0</td>
+            </tr>
+            <tr>
+                <td><img src="images/four.png" width="100", height="100"></td>
+                <td id="face3" style="font-size: 100px;">0</td>
+            </tr>
+            <tr>
+                <td><img src="images/five.png" width="100", height="100"></td>
+                <td id="face4" style="font-size: 100px;">0</td>
+            </tr>
+            <tr>
+                <td><img src="images/six.png" width="100", height="100"></td>
+                <td id="face5" style="font-size: 100px;">0</td>
+            </tr>
+        </table>
+        <label for="inputNum">Rolls: </label>
+        <input type="number" value="1" min="1" max="1000000" id="inputNum">
+        <input type="button" value="Roll" onclick="throwDice()">
+    </body>
+</html>

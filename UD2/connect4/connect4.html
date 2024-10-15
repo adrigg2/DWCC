@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Connect 4</title>
+        <script src="connect4.js"></script>
+        <style>
+            input.gameButton {
+                font-size: 225px; 
+                font-family: 'consolas';
+                height: 13pc;
+                width: 13pc;
+                border-radius: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Turn: <span id="turn">Red</span></p>
+        <table>
+            <tr>
+                <td><input id="0" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="1" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="2" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="3" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="4" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="5" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="6" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+            </tr>
+            <tr>
+                <td><input id="7" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="8" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="9" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="10" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="11" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="12" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="13" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+            </tr>
+            <tr>
+                <td><input id="14" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="15" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="16" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="17" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="18" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="19" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="20" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+            </tr>
+            <tr>
+                <td><input id="21" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="22" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="23" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="24" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="25" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="26" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="27" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+            </tr>
+            <tr>
+                <td><input id="28" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="29" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="30" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="31" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="32" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="33" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="34" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+            </tr>
+            <tr>
+                <td><input id="35" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="36" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="37" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="38" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="39" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="40" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="41" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+            </tr>
+        </table>
+        <input id="restart" type="button" onclick="restart()" value="Restart">
+    </body>
+</html>

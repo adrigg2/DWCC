@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic Tac Toe</title>
+        <script src="tic-tac-toe.js"></script>
+        <style>
+            input.gameButton {
+                font-size: 225px; 
+                font-family: 'consolas';
+                height: 17pc;
+                width: 17pc;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Turn: <span id="turn">X</span></p>
+        <table>
+            <tr>
+                <td><input id="0" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="1" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="2" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+            </tr>
+            <tr>
+                <td><input id="3" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="4" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="5" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+            </tr>
+            <tr>
+                <td><input id="6" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="7" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+                <td><input id="8" type="button" onclick="buttonSelected(this.id)" class="gameButton"></td>
+            </tr>
+        </table>
+        <input id="restart" type="button" onclick="restart()" value="Restart">
+    </body>
+</html>
