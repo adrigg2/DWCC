@@ -1,7 +1,7 @@
 let timer;
 const clickTime = 150;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     var ps = document.getElementsByTagName("p");
     var psArrays = Array.from(ps);
     psArrays.forEach(element => {
