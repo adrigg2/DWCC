@@ -1,21 +1,22 @@
 class Person {
-    constructor(name, surname, city) {
+    constructor(name, surname, city, id) {
         this.name = name;
         this.surname = surname;
         this.city = city;
+        this.id = id;
     }
 }
 
 function validateFields(person) {
-    if (person.name === "") {
+    if (person.name.trim() === "") {
         return false;
     }
 
-    if (person.surname === "") {
+    if (person.surname.trim() === "") {
         return false;
     }
 
-    if (person.city === "") {
+    if (person.city.trim() === "") {
         return false;
     }
 
@@ -29,44 +30,35 @@ function clearForm() {
 }
 
 function show(person) {
-    if(document.getElementById("actualTable") === null) {
-        console.log("creating table");
-        var table = document.createElement("table");
-        var firstRow = document.createElement("tr");
-        var thName = document.createElement("th");
-        var thSurname = document.createElement("th");
-        var thCity = document.createElement("th");
-        thName.textContent = "Nombre";
-        thSurname.textContent = "Apellidos";
-        thCity.textContent = "Ciudad";
-        firstRow.appendChild(thName);
-        firstRow.appendChild(thSurname);
-        firstRow.appendChild(thCity);
-        table.appendChild(firstRow);
-        table.id = "actualTable";
-        document.getElementById("table").append(table);
-    }
+    document.getElementById("table").style.display = "";
 
     var tr = document.createElement("tr");
+    var id = document.createElement("td");
     var name = document.createElement("td");
     var surname = document.createElement("td");
     var city = document.createElement("td");
+    id.textContent = person.id + 1;
     name.textContent = person.name;
     surname.textContent = person.surname;
     city.textContent = person.city;
+    tr.appendChild(id);
     tr.appendChild(name);
     tr.appendChild(surname);
     tr.appendChild(city);
-    document.getElementById("actualTable").appendChild(tr);
+    document.getElementById("tbody").appendChild(tr);
 }
 
 var button = document.getElementById("button");
+var persons = [];
 button.addEventListener("click", () => {
-    let person = new Person(document.getElementById("name").value, document.getElementById("surname").value, document.getElementById("city").value)
+    let person = new Person(document.getElementById("name").value, document.getElementById("surname").value, document.getElementById("city").value, persons.length)
     if (!validateFields(person)) {
         alert("Debes rellenar todos los campos");
         return;
     }
     alert("Datos guardados correctamente");
+    persons.push(person);
     show(person);
+    clearForm();
+    console.log(persons);
 });

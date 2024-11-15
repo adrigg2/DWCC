@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejemplo de DOM</title>
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+        <div id="formulario">
+            <h2>Deixanos os datos da túa mascota</h2>
+
+            <label for="nome">Nome :
+                <input id="input1" type="text" size="20">
+            </label><br>
+            <label for="raza">Raza :
+                <input id="input2" type="text" size="20"><br>
+            </label>
+            <label>Escolle o sexo:<br>
+                <input type="radio" name="sexo" value="Macho">Macho<br>
+                <input type="radio" name="sexo" value="Hembra">Hembra
+            </label>
+            <p>
+                <button type="button" id="button1" onclick="save()">Gardar</button>
+                <a href="mostrar_datos.html">
+                    <button type="button" id="button2">Finalizar</button>
+                </a>
+            </p>
+        </div>
+    </body>
+</html>

@@ -9,12 +9,14 @@
 </head>
 <body>
     <div id="formintro">
-        <label>Nombre: </label>
-        <input type=text id='name' required>
-        <label>Apellidos: </label>
-        <input type=text id='surname' required>
-        <label>Ciudad: </label>
-        <input type=text id='city' required>
+        <label for="name">Nombre: </label>
+        <input type="text" id='name' required>
+        <label for="surname">Apellidos: </label>
+        <input type="text" id='surname' required>
+        <label for="city">Ciudad: </label>
+        <input type="text" id='city' required>
+        <label for="dni">DNI: </label>
+        <input type="text" name="dni" id="dni" required>
         <button id="button">Guardar</button>
     </div>
     <br>
@@ -22,10 +24,11 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Ciudad</th>
+                    <th scope="col">#</th>
+                    <th scope="col" id="dniTable">DNI</th>
+                    <th scope="col" id="nameTable">Nombre</th>
+                    <th scope="col" id="surnameTable">Apellidos</th>
+                    <th scope="col" id="cityTable">Ciudad</th>
                 </tr>
             </thead>
             <tbody id="tbody">
