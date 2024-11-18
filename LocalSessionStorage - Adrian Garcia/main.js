@@ -6,20 +6,24 @@ class Animal {
     }
 }
 
-let array = [];
 function save() {
+    let array = JSON.parse(localStorage.getItem("array"));
+    if (array == null) {
+        array = [];
+    }
+
     let name = document.getElementById("input1").value;
     let race = document.getElementById("input2").value;
     let sex = document.getElementById("formulario").querySelector('input[name=sexo]:checked').value;
 
     let animal = new Animal(name, race, sex);
     array.push(animal);
-    sessionStorage.setItem("array", JSON.stringify(array));
+    localStorage.setItem("array", JSON.stringify(array));
 }
 
 function show() {
     let mainDiv = document.getElementById("mascotas");
-    array = JSON.parse(sessionStorage.getItem("array"));
+    array = JSON.parse(localStorage.getItem("array"));
 
     array.forEach(element => {
         let div = document.createElement("div");
@@ -38,8 +42,4 @@ function show() {
         mainDiv.appendChild(div);
         mainDiv.appendChild(br);
     });
-}
-
-function test() {
-    console.log("test");
 }
