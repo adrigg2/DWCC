@@ -1,0 +1,45 @@
+[
+    {
+        "name": "María",
+        "surname": "Rodríguez Novoa",
+        "city": "Vigo",
+        "dni": "12345678H",
+        "dataAlta": "2024/10/27"
+    },
+    {
+        "name": "Alba",
+        "surname": "Blanco Pérez",
+        "city": "Lugo",
+        "dni": "23456789O",
+        "dataAlta": "2024/11/16"
+        
+    },
+    {
+        "name": "Andrés",
+        "surname": "Comesaña López",
+        "city": "Tomiño",
+        "dni": "12345478H",
+        "dataAlta": "2024/10/22"
+    },
+    {
+        "name": "Ángela",
+        "surname": "Casal Rey",
+        "city": "Moaña",
+        "dni": "11111111A",
+        "dataAlta": "2024/01/27"
+    },
+    {
+        "name": "Ander",
+        "surname": "Pérez Pérez",
+        "city": "Avión",
+        "dni": "12344458S",
+        "dataAlta": "2023/02/7"
+    },
+    {
+        "name": "Laura",
+        "surname": "Gómez López",
+        "city": "Cangas",
+        "dni": "99999999Q",
+        "dataAlta": "2024/08/15"
+    }
+]
