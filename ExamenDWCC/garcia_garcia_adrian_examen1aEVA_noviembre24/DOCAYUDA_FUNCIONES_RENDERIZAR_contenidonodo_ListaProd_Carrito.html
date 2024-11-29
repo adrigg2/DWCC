@@ -1,0 +1,29 @@
+
+    <!--Contenido de cada tarjeta de cada producto dentro del <div> que se genera automáticamente desde el javascript.
+        DOMitems    
+    -->
+    <div class='card col-sm-4'>
+        <div class='card-body'>
+            <img class='img-fluid' src='SRC_DE_LA_IMAGEN_DEL_PRODUCTO'>
+            <h5 class='card-title'>NOME PRODUCTO</h5>
+            <p class='card-text'>PRECIO PRODUCTO €</p>
+            <button class='btn btn-primary' id='ID_DEL_PRODUCTO' onclick='anyadirProductoAlCarrito(ID_DEL_PRODUCTO)'> +
+            </button>
+        </div>
+    </div>
+
+
+    
+    <!--Contenido del carrito dentro de la etiqueta <ul> que se genera automáticamente desde el javascript
+        DOMcarrito    
+    -->
+    <ul id='carrito'>
+        <li class='list-group-item text-right mx-2'>
+            NUMERO UNIDADES x NOMBRE PRODUCTO - PRECIO PRODUCTO €
+            <button data-id='IDDELPRODUCTO' class='btn btn-danger mx-5' style="margin-left: 1rem;"
+                onclick='borrarItemCarrito(data-id)'> X </button>
+
+        </li>
+
+    </ul>
+
