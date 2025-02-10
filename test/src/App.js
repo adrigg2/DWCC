@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import Dado from './Dado';
 
 function App() {
   // Ej 2
@@ -49,19 +50,42 @@ function App() {
   // );
 
   // Ej 4b
-  function generateRandom() {
-    var numbersArray = numbers;
-    const random = Math.trunc(Math.random() * 10);
-    numbersArray.push(random);
-    setNumber(numbersArray);
+  // function generateRandom() {
+  //   var numbersArray = [ ...numbers ];
+  //   console.log(numbersArray);
+  //   const random = Math.trunc(Math.random() * 10);
+  //   numbersArray.push(random);
+  //   numbersArray.shift();
+  //   setNumber(numbersArray);
+  // }
+
+  // const [numbers, setNumber] = useState([0, 0, 0, 0, 0]);
+
+  // return (
+  //   <div className="App">
+  //     <p>Random number: {numbers.join(", ")}</p>
+  //     <button onClick={generateRandom}>Generate random number</button>
+  //   </div>
+  // );
+
+  // Ej 6a
+
+  function rollDie() {
+    setNumeros([
+      Math.floor(Math.random() * 6) + 1,
+      Math.floor(Math.random() * 6) + 1,
+      Math.floor(Math.random() * 6) + 1
+    ]);
   }
 
-  const [numbers, setNumber] = useState([]);
+  const [numeros, setNumeros] = useState([1, 1, 1]);
 
   return (
     <div className="App">
-      <p>Random number: {numbers.join(", ")}</p>
-      <button onClick={generateRandom}>Generate random number</button>
+      <Dado value={numeros[0]}></Dado>
+      <Dado value={numeros[1]}></Dado>
+      <Dado value={numeros[2]}></Dado>
+      <button onClick={rollDie}>Tirar dados</button>
     </div>
   );
 }
