@@ -4,13 +4,23 @@ import { useEffect, useState } from "react";
 import { api } from "@/js/api";
 
 export default function FormRegistro() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    password: "",
+  });
   const [usuarios, setUsuarios] = useState([]);
+  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     const usuarios = api.get("/users").data;
+    if (!usuarios) {
+      setUsuarios([]);
+      return;
+    }
     setUsuarios(usuarios);
-  }, [usuarios.length]);
+  }, []);
 
   function handleChange(event) {
     const name = event.target.name;
@@ -18,14 +28,23 @@ export default function FormRegistro() {
     setFormData({ ...formData, [name]: value });
   }
 
-  async function registerUser() {
+  async function registerUser(event) {
+    event.preventDefault();
+
     let user = {... formData};
     let roles = await api.get("/roles");
     user.rol = roles.data.find((rol) => rol.name === "user");
 
+    console.log(usuarios);
+    if (usuarios && usuarios.find((usuario) => usuario.email === user.email)) {
+      setErrorMsg("El email ya está registrado");
+      return;
+    }
+
     await api.post("/users", user)
       .then((response) => {
         console.log(response.data);
+        setUsuarios([...usuarios, response.data]);
       })
       .catch((error) => {
         console.error(error);
@@ -36,13 +55,13 @@ export default function FormRegistro() {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <main className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold text-gray-700 text-center mb-6">Registro</h2>
-        <form className="space-y-4" method="post">
+        <form className="space-y-4" onSubmit={registerUser}>
           <label className="block">
             <span className="text-gray-700">Nombre:</span>
             <input
               type="text"
-              name="nombre"
-              value={formData.nombre}
+              name="name"
+              value={formData.name}
               onChange={handleChange}
               className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
             />
@@ -52,7 +71,7 @@ export default function FormRegistro() {
             <span className="text-gray-700">Apellido:</span>
             <input
               type="text"
-              name="apellido"
+              name="surname"
               value={formData.surname}
               onChange={handleChange}
               className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
@@ -74,20 +93,16 @@ export default function FormRegistro() {
             <span className="text-gray-700">Contraseña:</span>
             <input
               type="password"
-              name="contrasena"
+              name="password"
               value={formData.password}
               onChange={handleChange}
               className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
             />
           </label>
 
-          <button
-            type="button"
-            onClick={registerUser}
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
-          >
-            Registrarse
-          </button>
+          {errorMsg && <p className="text-red-500">{errorMsg}</p>}
+
+          <input type="submit" value="Registrarse" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition" />
         </form>
       </main>
     </div>

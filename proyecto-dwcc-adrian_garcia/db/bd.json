@@ -1,6 +1,5 @@
 {
-  "users": [
-  ],
+  "users": [],
   "roles": [
     {
       "id": "1",
@@ -11,5 +10,51 @@
       "name": "user"
     }
   ],
-  "products": []
+  "products": [],
+  "categories": [
+    {
+      "name": "estrategia",
+      "id": "98cc"
+    },
+    {
+      "name": "rol",
+      "id": "095f"
+    },
+    {
+      "name": "accion",
+      "id": "ca94"
+    },
+    {
+      "name": "aventura",
+      "id": "20bf"
+    },
+    {
+      "name": "deportes",
+      "id": "c644"
+    },
+    {
+      "name": "carreras",
+      "id": "d4bf"
+    },
+    {
+      "name": "indie",
+      "id": "56b2"
+    },
+    {
+      "name": "simulacion",
+      "id": "bbb7"
+    },
+    {
+      "name": "multijugador",
+      "id": "0df2"
+    },
+    {
+      "name": "terror",
+      "id": "cbd1"
+    },
+    {
+      "name": "plataformas",
+      "id": "5133"
+    }
+  ]
 }

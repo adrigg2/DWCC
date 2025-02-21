@@ -1,12 +1,12 @@
 # TO DO
-- Autorización (IP)
+- Autorización (WIP)
     - Registro (Done)
     - Login
     - Rutas protegidas
-- Artículos (IP)
-    - Creación de nuevos artículos (IP)
+- Artículos (WIP)
+    - Creación de nuevos artículos (WIP)
     - Edición
-    - Eliminación
+    - Eliminación (WIP)
     - Subida imágenes
 - Tienda
     - Carrito

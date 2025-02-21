@@ -8,10 +8,13 @@ export default function Navbar() {
             </Link>
             <ul className="flex gap-4">
                 <li>
-                <Link href="/" className="hover:underline">Home</Link>
+                    <Link href="/" className="hover:underline">Inicio</Link>
                 </li>
                 <li>
-                <Link href="/formRegistro" className="hover:underline">Registro</Link>
+                    <Link href="/registro" className="hover:underline">Registro</Link>
+                </li>
+                <li>
+                    <Link href="/login" className="hover:underline">Iniciar sesión</Link>
                 </li>
             </ul>
         </nav>
