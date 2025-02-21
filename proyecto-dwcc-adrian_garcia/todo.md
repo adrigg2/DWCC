@@ -1,0 +1,17 @@
+# TO DO
+- Autorización (IP)
+    - Registro (Done)
+    - Login
+    - Rutas protegidas
+- Artículos (IP)
+    - Creación de nuevos artículos (IP)
+    - Edición
+    - Eliminación
+    - Subida imágenes
+- Tienda
+    - Carrito
+    - Artículos
+    - Filtro
+    - "Pago"
+- Admin
+    - Creación categorias
