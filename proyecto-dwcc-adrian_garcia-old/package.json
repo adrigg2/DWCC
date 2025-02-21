@@ -1,0 +1,25 @@
+{
+  "name": "proyecto-dwcc-adrian_garcia",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "json-server": "npx json-server --watch \"./db/bd.json\" --port 3000 --host localhost"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.1.6",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "json-server": "^1.0.0-beta.3"
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-next": "15.1.6",
+    "@eslint/eslintrc": "^3"
+  }
+}
