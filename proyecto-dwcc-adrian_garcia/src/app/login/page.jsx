@@ -1,9 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { api } from "@/js/api";
+import { useAuth } from "@/context/authContext";
+import { useRouter } from "next/navigation";
 
 export default function FormRegistro() {
+  const { login } = useAuth();
+
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -15,25 +20,18 @@ export default function FormRegistro() {
     setFormData({ ...formData, [name]: value });
   }
 
-  async function registerUser() {
-    let user = {... formData};
-    let roles = await api.get("/roles");
-    user.rol = roles.data.find((rol) => rol.name === "user");
+  async function loginUser(event) {
+    event.preventDefault();
 
-    await api.post("/users", user)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    await login(formData.email, formData.password);
+    router.push('/');
   }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <main className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold text-gray-700 text-center mb-6">Log in</h2>
-        <form className="space-y-4" onSubmit={registerUser}>
+        <form className="space-y-4" onSubmit={loginUser}>
           <label className="block">
             <span className="text-gray-700">Email:</span>
             <input

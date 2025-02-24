@@ -2,8 +2,9 @@
 import { api } from "@/js/api";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import withAuth from "@/components/security/withAuth";
 
-export default function Articulos() {
+const Articulos = () => {
     const [articulos, setArticulos] = useState([]);
     const [categorias, setCategorias] = useState([]);
     const [inputs, setInputs] = useState({});
@@ -41,11 +42,14 @@ export default function Articulos() {
 
     const deleteProduct = (id) => {
         api.delete(`/products/${id}`)
-            .then(console.log("Artículo eliminado"))
+            .then(() => {
+                console.log("Artículo eliminado");
+                setArticulos(articulos.filter(articulo => articulo.id !== id));
+            })
             .catch(error => console.error(`Error al eliminar el artículo: ${error}`))
     }
 
-    // TODO: Arreglar estilo botones, comprobar por qué se hace delete cuando se renderizan y añadir imagen
+    // TODO: Arreglar estilo botones, añadir imagen y arreglar asignación de categoría
     return (
         <div className="min-h-screen bg-gray-100 p-8">
             <h1 className="text-3xl font-bold text-center mb-6">Artículos</h1>
@@ -94,18 +98,18 @@ export default function Articulos() {
                     </thead>
                     <tbody>
                         {articulos.map(articulo => (
-                            <tr key={articulo.id} className="border-b hover:bg-gray-100">
+                            <tr key={articulo.id} className="border-b hover:bg-gray-100 text-black">
                                 <td className="p-3">{articulo.nombre}</td>
                                 <td className="p-3">{articulo.precio}</td>
                                 <td className="p-3">{articulo.descripcion}</td>
                                 <td className="p-3">{articulo.stock}</td>
-                                <td className="p-3">{articulo.categoria}</td>
+                                <td className="p-3">{articulo.categoria.name}</td>
                                 <td className="p-3">
                                     <button className="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
-                                        Editar
+                                        <i className="bi bi-pencil"></i>
                                     </button>
-                                    <button className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition">
-                                        Eliminar
+                                    <button className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition" onClick={() => deleteProduct(articulo.id)}>
+                                        <i className="bi bi-trash3"></i>
                                     </button>
                                 </td>
                             </tr>
@@ -116,3 +120,5 @@ export default function Articulos() {
         </div>
     );
 }
+
+export default withAuth(Articulos, ["admin"]);

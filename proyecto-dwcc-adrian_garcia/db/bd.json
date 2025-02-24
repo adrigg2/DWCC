@@ -1,5 +1,17 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "8dd2",
+      "name": "admin",
+      "surname": "admin",
+      "email": "admin@admin.com",
+      "password": "adminadmin",
+      "rol": {
+        "id": "1",
+        "name": "admin"
+      }
+    }
+  ],
   "roles": [
     {
       "id": "1",
@@ -10,7 +22,16 @@
       "name": "user"
     }
   ],
-  "products": [],
+  "products": [
+    {
+      "id": "a743",
+      "nombre": "Tets",
+      "precio": "11",
+      "descripcion": "Test",
+      "stock": "11",
+      "categoria": "[object Object]"
+    }
+  ],
   "categories": [
     {
       "name": "estrategia",

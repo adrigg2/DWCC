@@ -1,12 +1,12 @@
 # TO DO
-- Autorización (WIP)
+- Autorización (Done)
     - Registro (Done)
-    - Login
-    - Rutas protegidas
+    - Login (Done)
+    - Rutas protegidas (Done)
 - Artículos (WIP)
     - Creación de nuevos artículos (WIP)
     - Edición
-    - Eliminación (WIP)
+    - Eliminación (Done)
     - Subida imágenes
 - Tienda
     - Carrito

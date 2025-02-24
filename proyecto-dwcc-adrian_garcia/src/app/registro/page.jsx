@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { api } from "@/js/api";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/authContext";
 
 export default function FormRegistro() {
   const [formData, setFormData] = useState({
@@ -13,13 +15,22 @@ export default function FormRegistro() {
   const [usuarios, setUsuarios] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
 
+  const { login } = useAuth();
+
+  const router = useRouter();
+
   useEffect(() => {
-    const usuarios = api.get("/users").data;
-    if (!usuarios) {
-      setUsuarios([]);
-      return;
+    const fetchUsuarios = async () => {
+      const usuariosResponse = await api.get("/users");
+      const usuarios = usuariosResponse.data;
+      if (!usuarios) {
+        setUsuarios([]);
+        return;
+      }
+      setUsuarios(usuarios);
     }
-    setUsuarios(usuarios);
+
+    fetchUsuarios();
   }, []);
 
   function handleChange(event) {
@@ -44,7 +55,8 @@ export default function FormRegistro() {
     await api.post("/users", user)
       .then((response) => {
         console.log(response.data);
-        setUsuarios([...usuarios, response.data]);
+        login(user.email, user.password);
+        router.push('/');
       })
       .catch((error) => {
         console.error(error);
