@@ -35,6 +35,8 @@ const Articulos = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        var categoria = JSON.parse(inputs.categoria);
+        inputs.categoria = categoria;
         api.post("/products", inputs)
             .then(data => setArticulos([...articulos, data.data]))
             .catch(error => console.error(`Error al agregar el artículo: ${error}`))
@@ -49,7 +51,7 @@ const Articulos = () => {
             .catch(error => console.error(`Error al eliminar el artículo: ${error}`))
     }
 
-    // TODO: Arreglar estilo botones, añadir imagen y arreglar asignación de categoría
+    // TODO: Añadir imagen y arreglar asignación de categoría
     return (
         <div className="min-h-screen bg-gray-100 p-8">
             <h1 className="text-3xl font-bold text-center mb-6">Artículos</h1>
@@ -74,7 +76,7 @@ const Articulos = () => {
                     <label htmlFor="categoria" className="block text-gray-700">Categoría:</label>
                     <select onChange={handleChange} name="categoria" id="categoria" className="w-full p-2 border rounded-lg">
                         {categorias.map(categoria => (
-                            <option key={categoria.id} value={categoria}>{ categoria.name }</option>
+                            <option key={categoria.id} value={JSON.stringify(categoria)}>{ categoria.name }</option>
                         ))}
                     </select>
                 </div>
@@ -105,11 +107,11 @@ const Articulos = () => {
                                 <td className="p-3">{articulo.stock}</td>
                                 <td className="p-3">{articulo.categoria.name}</td>
                                 <td className="p-3">
-                                    <button className="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
-                                        <i className="bi bi-pencil"></i>
+                                    <button className="w-1/2 bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
+                                        Editar
                                     </button>
-                                    <button className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition" onClick={() => deleteProduct(articulo.id)}>
-                                        <i className="bi bi-trash3"></i>
+                                    <button className="w-1/2 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition" onClick={() => deleteProduct(articulo.id)}>
+                                        Eliminar
                                     </button>
                                 </td>
                             </tr>

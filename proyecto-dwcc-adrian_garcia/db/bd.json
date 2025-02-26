@@ -30,6 +30,25 @@
       "descripcion": "Test",
       "stock": "11",
       "categoria": "[object Object]"
+    },
+    {
+      "id": "fa48",
+      "nombre": "Test",
+      "descripcion": "tetst",
+      "precio": "123",
+      "stock": "213",
+      "categoria": {
+        "name": "deportes",
+        "id": "c644"
+      }
+    },
+    {
+      "id": "d0e0",
+      "nombre": "Test",
+      "precio": "123",
+      "descripcion": "tetst",
+      "stock": "213",
+      "categoria": "{\"name\":\"deportes\",\"id\":\"c644\"}"
     }
   ],
   "categories": [

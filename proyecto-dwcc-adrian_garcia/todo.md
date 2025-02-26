@@ -3,15 +3,19 @@
     - Registro (Done)
     - Login (Done)
     - Rutas protegidas (Done)
-- Artículos (WIP)
-    - Creación de nuevos artículos (WIP)
-    - Edición
-    - Eliminación (Done)
-    - Subida imágenes
 - Tienda
     - Carrito
     - Artículos
     - Filtro
     - "Pago"
 - Admin
-    - Creación categorias
+    - Gestión categorias
+        - Añadir
+        - Eliminar
+        - Editar
+    - Gestión artículos (WIP)
+        - Creación de nuevos artículos (WIP)
+        - Edición
+        - Eliminación (Done)
+        - Subida imágenes
+- Mejorar estilos
