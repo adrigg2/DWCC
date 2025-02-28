@@ -19,13 +19,7 @@ const Articulos = () => {
     const [image, setImage] = useState(null);
 
     useEffect(() => {
-        db.get("/products")
-            .then((response) => {
-                setArticulos(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        getArticulos();
         db.get("/categories")
             .then((response) => {
                 setCategorias(response.data);
@@ -34,6 +28,16 @@ const Articulos = () => {
                 console.error(error);
             });
     }, []);
+
+    const getArticulos = async () => {
+        db.get("/products")
+            .then((response) => {
+                setArticulos(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
 
     const handleChange = (event) => {
         setInputs(values => ({
@@ -50,30 +54,31 @@ const Articulos = () => {
         }));
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         var categoria = JSON.parse(inputs.categoria);
         inputs.categoria = categoria;
-        db.post("/products", inputs)
-            .then(data => setArticulos([...articulos, data.data]))
+        await db.post("/products", inputs)
+            .then(async data => {
+                setArticulos([...articulos, await data.data]);
+                if (image) {
+                    const formData = new FormData();
+                    formData.append("file", image);
+                    formData.append("fileName", data.data.id + "." + inputs.imageExtension);
+                    api.post("/api/image", formData)
+                        .then(() => console.log("Imagen subida"))
+                        .catch(error => console.error(`Error al subir la imagen: ${error}`));
+                }
+            })
             .catch(error => console.error(`Error al agregar el artículo: ${error}`));
         
-        if (image) {
-            const formData = new FormData();
-            console.log(articulos);
-            formData.append("file", image);
-            formData.append("fileName", articulos[articulos.length - 1].id + "." + inputs.imageExtension);
-            api.post("/api/upload", formData)
-                .then(() => console.log("Imagen subida"))
-                .catch(error => console.error(`Error al subir la imagen: ${error}`));
-        }
     }
 
     const deleteProduct = (id) => {
         const product = articulos.find(articulo => articulo.id === id);
 
         if (product.imageExtension) {
-            api.delete(`/api/delete/${product.id}.${product.imageExtension}`);
+            api.delete(`/api/image/${product.id}.${product.imageExtension}`);
         }
 
         db.delete(`/products/${id}`)
@@ -135,7 +140,7 @@ const Articulos = () => {
                         {articulos.map(articulo => (
                             <tr key={articulo.id} className="border-b hover:bg-gray-100 text-black">
                                 <td className="p-3">{articulo.id}</td>
-                                <td className="p-3"><Image src={`/uploads/img/${articulo.id}.${articulo.imageExtension}`} width={100} height={100} alt={articulo.nombre}></Image></td>
+                                <td className="p-3"><Image src={`/api/image/${articulo.id}.${articulo.imageExtension}`} width={100} height={100} alt={articulo.nombre}></Image></td>
                                 <td className="p-3">{articulo.nombre}</td>
                                 <td className="p-3">{articulo.precio}</td>
                                 <td className="p-3">{articulo.descripcion}</td>

@@ -14,9 +14,9 @@
         - Eliminar
         - Editar
     - Gestión artículos (WIP)
-        - Creación de nuevos artículos (WIP)
+        - Creación de nuevos artículos (Done)
+            - Subida imágenes (Done)
         - Edición
         - Eliminación (Done)
-            - Eliminación de imágenes (WIP)
-        - Subida imágenes (WIP)
+            - Eliminación de imágenes (Done)
 - Mejorar estilos
