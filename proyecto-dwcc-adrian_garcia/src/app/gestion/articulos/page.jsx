@@ -1,23 +1,32 @@
 "use client";
-import { api } from "@/js/api";
+import { db, api } from "@/js/api";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import ImageUploader from "@/components/imageUploader";
 import withAuth from "@/components/security/withAuth";
 
 const Articulos = () => {
     const [articulos, setArticulos] = useState([]);
     const [categorias, setCategorias] = useState([]);
-    const [inputs, setInputs] = useState({});
+    const [inputs, setInputs] = useState({
+        nombre: "",
+        precio: "",
+        descripcion: "",
+        stock: "",
+        categoria: "",
+        imageExtension: "",
+    });
+    const [image, setImage] = useState(null);
 
     useEffect(() => {
-        api.get("/products")
+        db.get("/products")
             .then((response) => {
                 setArticulos(response.data);
             })
             .catch((error) => {
                 console.error(error);
             });
-        api.get("/categories")
+        db.get("/categories")
             .then((response) => {
                 setCategorias(response.data);
             })
@@ -33,17 +42,41 @@ const Articulos = () => {
         }));
     }
 
+    const setFile = (file) => {
+        setImage(file);
+        setInputs(values => ({
+            ...values,
+            imageExtension: file.name.split(".").pop()
+        }));
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         var categoria = JSON.parse(inputs.categoria);
         inputs.categoria = categoria;
-        api.post("/products", inputs)
+        db.post("/products", inputs)
             .then(data => setArticulos([...articulos, data.data]))
-            .catch(error => console.error(`Error al agregar el artículo: ${error}`))
+            .catch(error => console.error(`Error al agregar el artículo: ${error}`));
+        
+        if (image) {
+            const formData = new FormData();
+            console.log(articulos);
+            formData.append("file", image);
+            formData.append("fileName", articulos[articulos.length - 1].id + "." + inputs.imageExtension);
+            api.post("/api/upload", formData)
+                .then(() => console.log("Imagen subida"))
+                .catch(error => console.error(`Error al subir la imagen: ${error}`));
+        }
     }
 
     const deleteProduct = (id) => {
-        api.delete(`/products/${id}`)
+        const product = articulos.find(articulo => articulo.id === id);
+
+        if (product.imageExtension) {
+            api.delete(`/api/delete/${product.id}.${product.imageExtension}`);
+        }
+
+        db.delete(`/products/${id}`)
             .then(() => {
                 console.log("Artículo eliminado");
                 setArticulos(articulos.filter(articulo => articulo.id !== id));
@@ -51,7 +84,6 @@ const Articulos = () => {
             .catch(error => console.error(`Error al eliminar el artículo: ${error}`))
     }
 
-    // TODO: Añadir imagen y arreglar asignación de categoría
     return (
         <div className="min-h-screen bg-gray-100 p-8">
             <h1 className="text-3xl font-bold text-center mb-6">Artículos</h1>
@@ -81,8 +113,7 @@ const Articulos = () => {
                     </select>
                 </div>
                 <div>
-                    <label htmlFor="imagen" className="block text-gray-700">Imagen:</label>
-                    <input type="file" id="imagen" name="imagen" onChange={handleChange} className="w-full p-2 border rounded-lg" />
+                    <ImageUploader setFile={setFile}></ImageUploader>
                 </div>
                 <input type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition" value="Agregar artículo"/>
             </form>
@@ -90,6 +121,8 @@ const Articulos = () => {
                 <table className="w-full bg-white shadow-md rounded-lg overflow-hidden">
                     <thead className="bg-blue-500 text-white">
                         <tr>
+                            <th className="p-3">ID</th>
+                            <th className="p-3">Imagen</th>
                             <th className="p-3">Nombre</th>
                             <th className="p-3">Precio</th>
                             <th className="p-3">Descripción</th>
@@ -101,6 +134,8 @@ const Articulos = () => {
                     <tbody>
                         {articulos.map(articulo => (
                             <tr key={articulo.id} className="border-b hover:bg-gray-100 text-black">
+                                <td className="p-3">{articulo.id}</td>
+                                <td className="p-3"><Image src={`/uploads/img/${articulo.id}.${articulo.imageExtension}`} width={100} height={100} alt={articulo.nombre}></Image></td>
                                 <td className="p-3">{articulo.nombre}</td>
                                 <td className="p-3">{articulo.precio}</td>
                                 <td className="p-3">{articulo.descripcion}</td>

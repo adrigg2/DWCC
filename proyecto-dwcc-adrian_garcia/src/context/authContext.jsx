@@ -1,6 +1,6 @@
 "use client";
 
-import { api } from '@/js/api';
+import { db } from '@/js/api';
 import { createContext, useState, useEffect, useContext } from 'react';
 
 const AuthContext = createContext();
@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const [loaded, setLoaded] = useState(false);
 
     const login = async(email, password) => {
-        const users = await api.get('/users');
+        const users = await db.get('/users');
         const user = users.data.find(user => user.email === email);
 
         if (!user) {

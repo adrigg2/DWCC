@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { api } from "@/js/api";
+import { db } from "@/js/api";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/authContext";
 
@@ -21,7 +21,7 @@ export default function FormRegistro() {
 
   useEffect(() => {
     const fetchUsuarios = async () => {
-      const usuariosResponse = await api.get("/users");
+      const usuariosResponse = await db.get("/users");
       const usuarios = usuariosResponse.data;
       if (!usuarios) {
         setUsuarios([]);
@@ -43,7 +43,7 @@ export default function FormRegistro() {
     event.preventDefault();
 
     let user = {... formData};
-    let roles = await api.get("/roles");
+    let roles = await db.get("/roles");
     user.rol = roles.data.find((rol) => rol.name === "user");
 
     console.log(usuarios);
@@ -52,7 +52,7 @@ export default function FormRegistro() {
       return;
     }
 
-    await api.post("/users", user)
+    await db.post("/users", user)
       .then((response) => {
         console.log(response.data);
         login(user.email, user.password);

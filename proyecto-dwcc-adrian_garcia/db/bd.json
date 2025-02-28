@@ -49,6 +49,95 @@
       "descripcion": "tetst",
       "stock": "213",
       "categoria": "{\"name\":\"deportes\",\"id\":\"c644\"}"
+    },
+    {
+      "id": "e5b0",
+      "nombre": "Tets",
+      "precio": "12",
+      "descripcion": "Test",
+      "stock": "12",
+      "categoria": {
+        "name": "carreras",
+        "id": "d4bf"
+      }
+    },
+    {
+      "id": "e95d",
+      "nombre": "Test",
+      "precio": "2",
+      "descripcion": "Test",
+      "stock": "12",
+      "categoria": {
+        "name": "deportes",
+        "id": "c644"
+      }
+    },
+    {
+      "id": "0039",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "Test",
+      "stock": "12",
+      "categoria": {
+        "name": "indie",
+        "id": "56b2"
+      }
+    },
+    {
+      "id": "ecdc",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "Test",
+      "stock": "12",
+      "categoria": {
+        "name": "deportes",
+        "id": "c644"
+      }
+    },
+    {
+      "id": "84ef",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "reser",
+      "stock": "12",
+      "categoria": {
+        "name": "simulacion",
+        "id": "bbb7"
+      }
+    },
+    {
+      "id": "d0e6",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "carreras",
+        "id": "d4bf"
+      }
+    },
+    {
+      "id": "c2c0",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "deportes",
+        "id": "c644"
+      }
+    },
+    {
+      "id": "e7cb",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "aventura",
+        "id": "20bf"
+      },
+      "imageExtension": "png"
     }
   ],
   "categories": [

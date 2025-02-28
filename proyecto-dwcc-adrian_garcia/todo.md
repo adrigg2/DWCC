@@ -17,5 +17,6 @@
         - Creación de nuevos artículos (WIP)
         - Edición
         - Eliminación (Done)
-        - Subida imágenes
+            - Eliminación de imágenes (WIP)
+        - Subida imágenes (WIP)
 - Mejorar estilos

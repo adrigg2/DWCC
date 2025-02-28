@@ -19,7 +19,7 @@ export default function Navbar() {
                     user ? (
                         <>
                             <li>
-                                <Link href="/articulos" className="hover:underline">Articulos</Link>
+                                <Link href="/gestion/articulos" className="hover:underline">Articulos</Link>
                             </li>
                             <li>
                                 <button onClick={() => logout()} className="hover:underline">Cerrar sesión</button>
