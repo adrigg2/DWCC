@@ -24,16 +24,100 @@
   ],
   "products": [
     {
-      "id": "1416",
+      "id": "fe02",
       "nombre": "Test",
       "precio": "12",
       "descripcion": "test",
       "stock": "12",
       "categoria": {
-        "name": "carreras",
-        "id": "d4bf"
+        "name": "aventura",
+        "id": "20bf"
       },
-      "imageExtension": "jpg"
+      "imageExtension": ""
+    },
+    {
+      "id": "a493",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "accion",
+        "id": "ca94"
+      },
+      "imageExtension": "png"
+    },
+    {
+      "id": "954b",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "indie",
+        "id": "56b2"
+      },
+      "imageExtension": ""
+    },
+    {
+      "id": "a6df",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "multijugador",
+        "id": "0df2"
+      },
+      "imageExtension": ""
+    },
+    {
+      "id": "8bad",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "aventura",
+        "id": "20bf"
+      },
+      "imageExtension": ""
+    },
+    {
+      "id": "febe",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "indie",
+        "id": "56b2"
+      },
+      "imageExtension": ""
+    },
+    {
+      "id": "763f",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "simulacion",
+        "id": "bbb7"
+      },
+      "imageExtension": ""
+    },
+    {
+      "id": "7cb8",
+      "nombre": "Test",
+      "precio": "2",
+      "descripcion": "12",
+      "stock": "2",
+      "categoria": {
+        "name": "simulacion",
+        "id": "bbb7"
+      },
+      "imageExtension": ""
     }
   ],
   "categories": [

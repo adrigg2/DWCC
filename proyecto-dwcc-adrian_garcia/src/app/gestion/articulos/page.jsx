@@ -1,164 +1,37 @@
 "use client";
-import { db, api } from "@/js/api";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import ImageUploader from "@/components/imageUploader";
+import { db } from "@/js/api";
 import withAuth from "@/components/security/withAuth";
+import TablaArticulos from "@/components/gestion/tablaArticulos";
+import FormArticulos from "@/components/gestion/formArticulos";
 
 const Articulos = () => {
     const [articulos, setArticulos] = useState([]);
-    const [categorias, setCategorias] = useState([]);
-    const [inputs, setInputs] = useState({
-        nombre: "",
-        precio: "",
-        descripcion: "",
-        stock: "",
-        categoria: "",
-        imageExtension: "",
-    });
-    const [image, setImage] = useState(null);
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(10);
+    const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
         getArticulos();
-        db.get("/categories")
+    }, [page, perPage]);
+
+    const getArticulos = () => {
+        db.get(`/products?_page=${page}&_per_page=${perPage}&_embed=categories`)
             .then((response) => {
-                setCategorias(response.data);
+                setArticulos(response.data.data);
+                setTotalPages(response.data.pages);
+                console.log(response.data);
             })
             .catch((error) => {
                 console.error(error);
             });
-    }, []);
-
-    const getArticulos = async () => {
-        db.get("/products")
-            .then((response) => {
-                setArticulos(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }
-
-    const handleChange = (event) => {
-        setInputs(values => ({
-            ...values,
-            [event.target.name]: event.target.value
-        }));
-    }
-
-    const setFile = (file) => {
-        setImage(file);
-        setInputs(values => ({
-            ...values,
-            imageExtension: file.name.split(".").pop()
-        }));
-    }
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        var categoria = JSON.parse(inputs.categoria);
-        inputs.categoria = categoria;
-        await db.post("/products", inputs)
-            .then(async data => {
-                setArticulos([...articulos, await data.data]);
-                if (image) {
-                    const formData = new FormData();
-                    formData.append("file", image);
-                    formData.append("fileName", data.data.id + "." + inputs.imageExtension);
-                    api.post("/api/image", formData)
-                        .then(() => console.log("Imagen subida"))
-                        .catch(error => console.error(`Error al subir la imagen: ${error}`));
-                }
-            })
-            .catch(error => console.error(`Error al agregar el artículo: ${error}`));
-        
-    }
-
-    const deleteProduct = (id) => {
-        const product = articulos.find(articulo => articulo.id === id);
-
-        if (product.imageExtension) {
-            api.delete(`/api/image/${product.id}.${product.imageExtension}`);
-        }
-
-        db.delete(`/products/${id}`)
-            .then(() => {
-                console.log("Artículo eliminado");
-                setArticulos(articulos.filter(articulo => articulo.id !== id));
-            })
-            .catch(error => console.error(`Error al eliminar el artículo: ${error}`))
     }
 
     return (
         <div className="min-h-screen bg-gray-100 p-8">
             <h1 className="text-3xl font-bold text-center mb-6">Artículos</h1>
-            <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto space-y-4">
-                <div>
-                    <label htmlFor="nombre" className="block text-gray-700">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" onChange={handleChange} className="w-full p-2 border rounded-lg" />
-                </div>
-                <div>
-                    <label htmlFor="precio" className="block text-gray-700">Precio:</label>
-                    <input type="number" id="precio" name="precio" onChange={handleChange} className="w-full p-2 border rounded-lg" />
-                </div>
-                <div>
-                    <label htmlFor="descripcion" className="block text-gray-700">Descripción:</label>
-                    <input type="text" id="descripcion" name="descripcion" onChange={handleChange} className="w-full p-2 border rounded-lg" />
-                </div>
-                <div>
-                    <label htmlFor="stock" className="block text-gray-700">Stock:</label>
-                    <input type="number" id="stock" name="stock" onChange={handleChange} className="w-full p-2 border rounded-lg" />
-                </div>
-                <div>
-                    <label htmlFor="categoria" className="block text-gray-700">Categoría:</label>
-                    <select onChange={handleChange} name="categoria" id="categoria" className="w-full p-2 border rounded-lg">
-                        {categorias.map(categoria => (
-                            <option key={categoria.id} value={JSON.stringify(categoria)}>{ categoria.name }</option>
-                        ))}
-                    </select>
-                </div>
-                <div>
-                    <ImageUploader setFile={setFile}></ImageUploader>
-                </div>
-                <input type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition" value="Agregar artículo"/>
-            </form>
-            <div className="mt-8 overflow-x-auto">
-                <table className="w-full bg-white shadow-md rounded-lg overflow-hidden">
-                    <thead className="bg-blue-500 text-white">
-                        <tr>
-                            <th className="p-3">ID</th>
-                            <th className="p-3">Imagen</th>
-                            <th className="p-3">Nombre</th>
-                            <th className="p-3">Precio</th>
-                            <th className="p-3">Descripción</th>
-                            <th className="p-3">Stock</th>
-                            <th className="p-3">Categoría</th>
-                            <th className="p-3">Gestión</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {articulos.map(articulo => (
-                            <tr key={articulo.id} className="border-b hover:bg-gray-100 text-black">
-                                <td className="p-3">{articulo.id}</td>
-                                <td className="p-3"><Image src={`/api/image/${articulo.id}.${articulo.imageExtension}`} width={100} height={100} alt={articulo.nombre}></Image></td>
-                                <td className="p-3">{articulo.nombre}</td>
-                                <td className="p-3">{articulo.precio}</td>
-                                <td className="p-3">{articulo.descripcion}</td>
-                                <td className="p-3">{articulo.stock}</td>
-                                <td className="p-3">{articulo.categoria.name}</td>
-                                <td className="p-3">
-                                    <button className="w-1/2 bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
-                                        Editar
-                                    </button>
-                                    <button className="w-1/2 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition" onClick={() => deleteProduct(articulo.id)}>
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+            <FormArticulos updateArticulos={getArticulos}></FormArticulos>
+            <TablaArticulos articulos={articulos} page={page} perPage={perPage} totalPages={totalPages} setPage={setPage} setPerPage={setPerPage} updateArticulos={getArticulos}></TablaArticulos>
         </div>
     );
 }

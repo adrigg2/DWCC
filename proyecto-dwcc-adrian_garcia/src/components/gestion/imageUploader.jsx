@@ -5,7 +5,7 @@ export default function ImageUploader({ setFile }) {
 
     return (
         <>
-            <label htmlFor="imagen" className="block text-gray-700">Imagen:</label>
+            <label htmlFor="imagen" className="block text-gray-700">Imagen (opcional):</label>
             <input type="file" id="imagen" name="imagen" accept=".png, .jpg, .jpeg" onChange={handleChange} className="w-full p-2 border rounded-lg" />
         </>
     )
