@@ -67,8 +67,8 @@ export default function TablaArticulos({ articulos, page, perPage, totalPages, s
             {
                 totalPages > 1 &&
                 <div className="mt-4 flex justify-center">
-                    <button onClick={() => setPage(page - 1)} disabled={page <= 1} className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">Anterior</button>
-                    <button onClick={() => setPage(page + 1)} disabled={page >= totalPages} className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">Siguiente</button>
+                    <button onClick={() => setPage(page - 1)} disabled={page <= 1} className={page <= 1 ? "bg-blue-400 text-white py-2 px-4 rounded-lg transition" : "bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"}>Anterior</button>
+                    <button onClick={() => setPage(page + 1)} disabled={page >= totalPages} className={page >= totalPages ? "bg-blue-400 text-white py-2 px-4 rounded-lg transition" : "bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"}>Siguiente</button>
                 </div>
             }
         </div>

@@ -118,6 +118,42 @@
         "id": "bbb7"
       },
       "imageExtension": ""
+    },
+    {
+      "id": "810c",
+      "nombre": "Test",
+      "precio": "123",
+      "descripcion": "test",
+      "stock": "23",
+      "categoria": {
+        "name": "simulacion",
+        "id": "bbb7"
+      },
+      "imageExtension": ""
+    },
+    {
+      "id": "79b6",
+      "nombre": "Test",
+      "precio": "123",
+      "descripcion": "test",
+      "stock": "23",
+      "categoria": {
+        "name": "multijugador",
+        "id": "0df2"
+      },
+      "imageExtension": ""
+    },
+    {
+      "id": "4ed2",
+      "nombre": "Test",
+      "precio": "123",
+      "descripcion": "test",
+      "stock": "23",
+      "categoria": {
+        "name": "multijugador",
+        "id": "0df2"
+      },
+      "imageExtension": ""
     }
   ],
   "categories": [
