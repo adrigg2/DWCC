@@ -8,15 +8,20 @@
     - Artículos
     - Filtro
     - "Pago"
-- Admin
-    - Gestión categorias
-        - Añadir
-        - Eliminar
-        - Editar
-    - Gestión artículos (WIP)
+- Admin (Done)
+    - Gestión categorias (Done)
+        - Añadir (Done)
+        - Eliminar (Done)
+    - Gestión etiquetas (Done)
+        - Añadir (Done)
+        - Eliminar (Done)
+    - Gestión generos (Done)
+        - Añadir (Done)
+        - Eliminar (Done)
+    - Gestión artículos (Done)
         - Creación de nuevos artículos (Done)
             - Subida imágenes (Done)
-        - Edición
+        - Edición (Done)
         - Eliminación (Done)
             - Eliminación de imágenes (Done)
 - Mejorar estilos

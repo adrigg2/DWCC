@@ -24,182 +24,153 @@
   ],
   "products": [
     {
-      "id": "fe02",
+      "id": "b2f0",
       "nombre": "Test",
       "precio": "12",
       "descripcion": "test",
       "stock": "12",
       "categoria": {
-        "name": "aventura",
+        "name": "Hardware",
         "id": "20bf"
       },
-      "imageExtension": ""
+      "imageExtension": "jpg",
+      "descuento": 0,
+      "etiquetas": [],
+      "generos": []
     },
     {
-      "id": "a493",
+      "id": "b2d2",
       "nombre": "Test",
-      "precio": "12",
+      "precio": "13",
       "descripcion": "test",
-      "stock": "12",
+      "stock": "13",
       "categoria": {
-        "name": "accion",
-        "id": "ca94"
-      },
-      "imageExtension": "png"
-    },
-    {
-      "id": "954b",
-      "nombre": "Test",
-      "precio": "12",
-      "descripcion": "test",
-      "stock": "12",
-      "categoria": {
-        "name": "indie",
+        "name": "Accesorios",
         "id": "56b2"
       },
-      "imageExtension": ""
+      "imageExtension": "png",
+      "descuento": "15",
+      "etiquetas": [
+        {
+          "id": "4",
+          "name": "seminuevo"
+        }
+      ],
+      "generos": []
     },
     {
-      "id": "a6df",
+      "id": "609a",
       "nombre": "Test",
-      "precio": "12",
+      "precio": "32",
       "descripcion": "test",
-      "stock": "12",
-      "categoria": {
-        "name": "multijugador",
-        "id": "0df2"
-      },
-      "imageExtension": ""
-    },
-    {
-      "id": "8bad",
-      "nombre": "Test",
-      "precio": "12",
-      "descripcion": "test",
-      "stock": "12",
-      "categoria": {
-        "name": "aventura",
-        "id": "20bf"
-      },
-      "imageExtension": ""
-    },
-    {
-      "id": "febe",
-      "nombre": "Test",
-      "precio": "12",
-      "descripcion": "test",
-      "stock": "12",
-      "categoria": {
-        "name": "indie",
-        "id": "56b2"
-      },
-      "imageExtension": ""
-    },
-    {
-      "id": "763f",
-      "nombre": "Test",
-      "precio": "12",
-      "descripcion": "test",
-      "stock": "12",
-      "categoria": {
-        "name": "simulacion",
-        "id": "bbb7"
-      },
-      "imageExtension": ""
-    },
-    {
-      "id": "7cb8",
-      "nombre": "Test",
-      "precio": "2",
-      "descripcion": "12",
       "stock": "2",
       "categoria": {
-        "name": "simulacion",
-        "id": "bbb7"
+        "name": "Videojuego físico",
+        "id": "98cc"
       },
-      "imageExtension": ""
+      "imageExtension": "",
+      "descuento": 0,
+      "etiquetas": [],
+      "generos": [
+        {
+          "id": "2",
+          "name": "aventura"
+        },
+        {
+          "id": "4",
+          "name": "multijugador"
+        },
+        {
+          "id": "3",
+          "name": "indie"
+        }
+      ]
     },
     {
-      "id": "810c",
+      "id": "bad6",
       "nombre": "Test",
-      "precio": "123",
+      "precio": "5",
       "descripcion": "test",
-      "stock": "23",
+      "stock": "3",
       "categoria": {
-        "name": "simulacion",
-        "id": "bbb7"
+        "name": "Videojuego físico",
+        "id": "98cc"
       },
-      "imageExtension": ""
-    },
-    {
-      "id": "79b6",
-      "nombre": "Test",
-      "precio": "123",
-      "descripcion": "test",
-      "stock": "23",
-      "categoria": {
-        "name": "multijugador",
-        "id": "0df2"
-      },
-      "imageExtension": ""
-    },
-    {
-      "id": "4ed2",
-      "nombre": "Test",
-      "precio": "123",
-      "descripcion": "test",
-      "stock": "23",
-      "categoria": {
-        "name": "multijugador",
-        "id": "0df2"
-      },
-      "imageExtension": ""
+      "imageExtension": "png",
+      "descuento": 0,
+      "etiquetas": [],
+      "generos": [
+        {
+          "id": "2",
+          "name": "aventura"
+        },
+        {
+          "id": "3",
+          "name": "indie"
+        },
+        {
+          "id": "4",
+          "name": "multijugador"
+        }
+      ]
     }
   ],
-  "categories": [
+  "categorias": [
     {
-      "name": "estrategia",
+      "name": "Videojuego físico",
       "id": "98cc"
     },
     {
-      "name": "rol",
+      "name": "Código descarga",
       "id": "095f"
     },
     {
-      "name": "accion",
+      "name": "Merchandasing",
       "id": "ca94"
     },
     {
-      "name": "aventura",
+      "name": "Hardware",
       "id": "20bf"
     },
     {
-      "name": "deportes",
-      "id": "c644"
-    },
-    {
-      "name": "carreras",
-      "id": "d4bf"
-    },
-    {
-      "name": "indie",
+      "name": "Accesorios",
       "id": "56b2"
     },
     {
-      "name": "simulacion",
-      "id": "bbb7"
-    },
-    {
-      "name": "multijugador",
+      "name": "Otros",
       "id": "0df2"
+    }
+  ],
+  "etiquetas": [
+    {
+      "id": "2",
+      "name": "oferta"
     },
     {
-      "name": "terror",
-      "id": "cbd1"
+      "id": "4",
+      "name": "seminuevo"
+    }
+  ],
+  "generos": [
+    {
+      "id": "1",
+      "name": "accion"
     },
     {
-      "name": "plataformas",
-      "id": "5133"
+      "id": "2",
+      "name": "aventura"
+    },
+    {
+      "id": "3",
+      "name": "indie"
+    },
+    {
+      "id": "4",
+      "name": "multijugador"
+    },
+    {
+      "id": "5",
+      "name": "simulacion"
     }
   ]
 }

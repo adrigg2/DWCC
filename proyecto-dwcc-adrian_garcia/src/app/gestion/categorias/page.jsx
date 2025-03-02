@@ -1,0 +1,60 @@
+"use client";
+import { useEffect, useState } from "react";
+import { db } from "@/js/api";
+import withAuth from "@/components/security/withAuth";
+import FormGestion from "@/components/gestion/formGestion";
+import TablaGestion from "@/components/gestion/tablaGestion";
+
+const Categorias = () => {
+    const [categorias, setCategorias] = useState([]);
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(10);
+    const [totalPages, setTotalPages] = useState(0);
+
+    useEffect(() => {
+        getCategorias();
+    }, [page, perPage]);
+
+    const getCategorias = () => {
+        db.get(`/categorias?_page=${page}&_per_page=${perPage}`)
+            .then((response) => {
+                setCategorias(response.data.data);
+                setTotalPages(response.data.pages);
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+    const deleteItem = (id) => {
+        db.delete(`/categorias/${id}`)
+            .then(() => {
+                console.log("Categoría eliminada");
+                db.get("/products")
+                .then(response => {
+                    response.data.forEach(element => {
+                        if (element.categoria.id === id) {
+                            db.delete(`/products/${element.id}`)
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+                getCategorias();
+            })
+            .catch(error => console.error(`Error al eliminar la categoría: ${error}`))
+    }
+
+    return (
+        <div className="min-h-screen bg-gray-100 p-8">
+            <h1 className="text-3xl font-bold text-center mb-6">Categorías</h1>
+            <FormGestion itemName={"categorias"}></FormGestion>
+            <h4 className="text-center text-red-600 font-semibold bg-red-100 border border-red-400 p-2 rounded-lg">Eliminar una categoría implica la eliminación de todos los productos que pertenezcan a esa categoría</h4>
+            <TablaGestion items={categorias} page={page} perPage={perPage} totalPages={totalPages} setPage={setPage} setPerPage={setPerPage} deleteItem={deleteItem}></TablaGestion>
+        </div>
+    );
+}
+
+export default withAuth(Categorias, ["admin"]);

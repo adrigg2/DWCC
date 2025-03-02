@@ -18,9 +18,11 @@ export default function Navbar() {
                 {
                     user ? (
                         <>
+                            {user.rol.name === "admin" &&
                             <li>
-                                <Link href="/gestion/articulos" className="hover:underline">Articulos</Link>
+                                <Link href="/gestion" className="hover:underline">Gestión</Link>
                             </li>
+                            }
                             <li>
                                 <button onClick={() => logout()} className="hover:underline">Cerrar sesión</button>
                             </li>

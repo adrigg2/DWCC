@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import path from "path";
-import { unlink, readFile } from "fs/promises";
+import { unlink, readFile, writeFile } from "fs/promises";
 import fs from "fs";
 
 export const runtime = "nodejs";
@@ -15,6 +15,29 @@ export const DELETE = async (req, { params }) => {
     } catch (error) {
         console.error(error);
         return NextResponse.json({ error: "Error deleting file" }, { status: 500 });
+    }
+}
+
+export const PUT = async (req, { params }) => {
+    try {
+        const { fileName } = await params;
+        const formData = await req.formData();
+
+        const newFile = formData.get("file");
+
+        const filePath = path.join(process.cwd(), "uploads/img/" + fileName);
+
+        if (fs.existsSync(filePath)) {
+            await unlink(filePath);
+        }
+
+        const buffer = Buffer.from(await newFile.arrayBuffer());
+
+        await writeFile(filePath, buffer);
+        return NextResponse.json({ message: "File uploaded", status: 201 });
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json({ error: "Error uploading file" }, { status: 500 });
     }
 }
 
