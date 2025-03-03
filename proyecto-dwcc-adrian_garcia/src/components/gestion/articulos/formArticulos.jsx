@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { db, api } from "@/js/api";
 import ImageUploader from "./imageUploader";
+import Select from "react-select";
 
-export default function FormArticulos({ updateArticulos, editing, editId }) {
-    const [categorias, setCategorias] = useState([]);
-    const [etiquetas, setEtiquetas] = useState([]);
-    const [generos, setGeneros] = useState([]);
+export default function FormArticulos({ updateArticulos, editing, editId, categorias, etiquetas, generos }) {
     const [inputs, setInputs] = useState({
         nombre: "",
         precio: 0,
@@ -19,30 +17,6 @@ export default function FormArticulos({ updateArticulos, editing, editId }) {
     });
     const [image, setImage] = useState(null);
     const [errorMsg, setErrorMsg] = useState("");
-
-    useEffect(() => {
-        db.get("/categorias")
-            .then((response) => {
-                setCategorias(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-        db.get("/etiquetas")
-            .then((response) => {
-                setEtiquetas(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-        db.get("/generos")
-            .then((response) => {
-                setGeneros(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, []);
 
     useEffect(() => {
         if (editId) {
@@ -63,13 +37,10 @@ export default function FormArticulos({ updateArticulos, editing, editId }) {
         }));
     }
 
-    const handleCheckboxChange = (event, key) => {
-        const { value, checked } = event.target;
-        console.log(value);
-        console.log(checked);
+    const handleMultiSelectChange = (selectedOptions, key) => {
         setInputs(prev => ({
             ...prev,
-            [key]: checked ? [...prev[key], JSON.parse(value)] : prev[key].filter((item) => item.id !== JSON.parse(value).id),
+            [key]: selectedOptions ? selectedOptions.map(option => option.value) : [],
         }));
     };
 
@@ -176,12 +147,12 @@ export default function FormArticulos({ updateArticulos, editing, editId }) {
             </div>
             <div>
                 <label className="block text-gray-700">Etiquetas:</label>
-                {etiquetas.map((etiqueta) => (
-                    <label key={etiqueta.id} className="inline-flex items-center space-x-2">
-                        <input type="checkbox" value={JSON.stringify(etiqueta)} onChange={(e) => handleCheckboxChange(e, "etiquetas")} />
-                        <span>{etiqueta.name}</span>
-                    </label>
-                ))}
+                <Select
+                    isMulti
+                    options={etiquetas.map(etiqueta => ({ value: etiqueta, label: etiqueta.name }))}
+                    onChange={(selectedOptions) => handleMultiSelectChange(selectedOptions, "etiquetas")}
+                    className="w-full"
+                />
             </div>
             {(inputs.etiquetas.filter(etiqueta => etiqueta.id === "2" || etiqueta.id === "4").length > 0) && <div>
                 <label htmlFor="descuento" className="block text-gray-700">Descuento:</label>
@@ -189,12 +160,12 @@ export default function FormArticulos({ updateArticulos, editing, editId }) {
             </div>}
             {inputs.categoria && (inputs.categoria.id === "98cc" || inputs.categoria.id === "095f") && <div>
                 <label className="block text-gray-700">Géneros:</label>
-                {generos.map((genero) => (
-                    <label key={genero.id} className="inline-flex items-center space-x-2">
-                        <input type="checkbox" value={JSON.stringify(genero)} onChange={(e) => handleCheckboxChange(e, "generos")} />
-                        <span>{genero.name}</span>
-                    </label>
-                ))}
+                <Select
+                    isMulti
+                    options={generos.map(generos => ({ value: generos, label: generos.name }))}
+                    onChange={(selectedOptions) => handleMultiSelectChange(selectedOptions, "generos")}
+                    className="w-full"
+                />
             </div>}
             <div>
                 <ImageUploader setFile={setFile}></ImageUploader>

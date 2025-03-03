@@ -113,6 +113,80 @@
           "name": "multijugador"
         }
       ]
+    },
+    {
+      "id": "3727",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "21",
+      "categoria": {
+        "name": "Videojuego físico",
+        "id": "98cc"
+      },
+      "imageExtension": "",
+      "descuento": 0,
+      "etiquetas": [
+        {
+          "value": {
+            "id": "2",
+            "name": "oferta"
+          },
+          "label": "oferta"
+        },
+        {
+          "value": {
+            "id": "4",
+            "name": "seminuevo"
+          },
+          "label": "seminuevo"
+        }
+      ],
+      "generos": [
+        {
+          "value": {
+            "id": "3",
+            "name": "indie"
+          },
+          "label": "indie"
+        },
+        {
+          "value": {
+            "id": "4",
+            "name": "multijugador"
+          },
+          "label": "multijugador"
+        }
+      ]
+    },
+    {
+      "id": "7229",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "Código descarga",
+        "id": "095f"
+      },
+      "imageExtension": "",
+      "descuento": "012",
+      "etiquetas": [
+        {
+          "id": "2",
+          "name": "oferta"
+        }
+      ],
+      "generos": [
+        {
+          "id": "2",
+          "name": "aventura"
+        },
+        {
+          "id": "3",
+          "name": "indie"
+        }
+      ]
     }
   ],
   "categorias": [

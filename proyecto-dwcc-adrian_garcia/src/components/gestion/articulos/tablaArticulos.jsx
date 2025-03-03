@@ -1,9 +1,8 @@
 import { db } from "@/js/api";
 import Image from "next/image";
+import Select from "react-select";
 
-// TODO: Agregar filtros
-
-export default function TablaArticulos({ articulos, page, perPage, totalPages, setPage, setPerPage, updateArticulos, editProduct }) {
+export default function TablaArticulos({ articulos, page, perPage, totalPages, setPage, setPerPage, updateArticulos, editProduct, categorias, etiquetas, generos, setFilter, filter }) {    
     const deleteProduct = (id) => {
         const product = articulos.find(articulo => articulo.id === id);
 
@@ -21,14 +20,35 @@ export default function TablaArticulos({ articulos, page, perPage, totalPages, s
 
     return (
         <div className="mt-8 overflow-x-auto">
-            <div className="flex justify-between items-center">
-                <label htmlFor="perPage">Artículos por página</label>
+            <div className="flex justify-end items-center">
+                <label htmlFor="perPage">Artículos por página: </label>
                 <select id="perPage" name="perPage" value={perPage} onChange={(event) => setPerPage(event.target.value)} className="border rounded-lg p-2">
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="20">25</option>
                     <option value="50">50</option>
                 </select>
+                <label htmlFor="perPage">Categoría: </label>
+                <select id="perPage" name="perPage" value={JSON.stringify(filter.categoria)} onChange={(event) => setFilter(event.target.value === "" ? "" : JSON.parse(event.target.value), "categoria")} className="border rounded-lg p-2">
+                    <option value="">Todas</option>
+                    {categorias.map(categoria => (
+                        <option key={categoria.id} value={JSON.stringify(categoria)}>{ categoria.name }</option>
+                    ))}
+                </select>
+                <label className="block text-gray-700">Etiquetas:</label>
+                <Select
+                    isMulti
+                    options={etiquetas.map(etiqueta => ({ value: etiqueta, label: etiqueta.name }))}
+                    onChange={(selectedOptions) => setFilter(selectedOptions ? selectedOptions.map(option => option.value) : [], "etiquetas")}
+                    className="w-full"
+                />
+                <label className="block text-gray-700">Géneros:</label>
+                <Select
+                    isMulti
+                    options={generos.map(generos => ({ value: generos, label: generos.name }))}
+                    onChange={(selectedOptions) => setFilter(selectedOptions ? selectedOptions.map(option => option.value) : [], "generos")}
+                    className="w-full"
+                />
             </div>
             <table className="w-full bg-white shadow-md rounded-lg overflow-hidden">
                 <thead className="bg-blue-500 text-white">

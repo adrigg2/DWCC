@@ -27,6 +27,21 @@ const Categorias = () => {
             });
     }
 
+    const deleteProduct = (id) => {
+        const product = articulos.find(articulo => articulo.id === id);
+
+        if (product.imageExtension) {
+            api.delete(`/api/image/${product.id}.${product.imageExtension}`);
+        }
+
+        db.delete(`/products/${id}`)
+            .then(() => {
+                console.log("Artículo eliminado");
+                updateArticulos();
+            })
+            .catch(error => console.error(`Error al eliminar el artículo: ${error}`))
+    }
+
     const deleteItem = (id) => {
         db.delete(`/categorias/${id}`)
             .then(() => {
@@ -35,7 +50,7 @@ const Categorias = () => {
                 .then(response => {
                     response.data.forEach(element => {
                         if (element.categoria.id === id) {
-                            db.delete(`/products/${element.id}`)
+                            deleteProduct(element.id);
                         }
                     });
                 })
