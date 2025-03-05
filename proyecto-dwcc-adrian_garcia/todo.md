@@ -24,4 +24,7 @@
         - Edición (Done)
         - Eliminación (Done)
             - Eliminación de imágenes (Done)
+    - Gestión usuarios
+        - Cambiar roles
+        - Vetar usuarios
 - Mejorar estilos

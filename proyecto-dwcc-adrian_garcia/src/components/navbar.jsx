@@ -1,10 +1,12 @@
 "use client";
 
 import { useAuth } from "@/context/authContext";
+import { useCart } from "@/context/cartContext";
 import Link from "next/link";
 
 export default function Navbar() {
     const { user, logout } = useAuth();
+    const { emptyCart } = useCart();
 
     return (
         <nav className="flex items-center justify-between p-4 bg-gray-800 text-white">
@@ -24,7 +26,7 @@ export default function Navbar() {
                             </li>
                             }
                             <li>
-                                <button onClick={() => logout()} className="hover:underline">Cerrar sesión</button>
+                                <button onClick={() => {emptyCart(); logout();}} className="hover:underline">Cerrar sesión</button>
                             </li>
                         </>
                     ) : (

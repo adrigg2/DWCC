@@ -3,9 +3,14 @@
 import { useState } from "react";
 import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/context/cartContext";
+import { useSearchParams } from 'next/navigation'
+import { db } from "@/js/api";
 
 export default function FormRegistro() {
   const { login } = useAuth();
+  const { addToCart } = useCart();
+  const searchParams = useSearchParams()
 
   const router = useRouter();
 
@@ -24,6 +29,19 @@ export default function FormRegistro() {
     event.preventDefault();
 
     await login(formData.email, formData.password);
+
+    const addProduct = searchParams.get('add');
+
+    if (addProduct) {
+      db.get(`/products/${addProduct}`)
+            .then(async (response) => {
+                addToCart(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     router.push('/');
   }
 

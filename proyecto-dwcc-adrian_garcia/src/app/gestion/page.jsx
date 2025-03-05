@@ -19,6 +19,9 @@ const Gestion = () => {
                     <Link href="/gestion/generos" className="w-60 bg-blue-500 text-white text-center font-semibold py-3 rounded-lg shadow-md hover:bg-blue-600 transition">
                         Gestionar Géneros
                     </Link>
+                    <Link href="/gestion/usuarios" className="w-60 bg-blue-500 text-white text-center font-semibold py-3 rounded-lg shadow-md hover:bg-blue-600 transition">
+                        Gestionar Usuarios
+                    </Link>
             </div>
         </div>
     )

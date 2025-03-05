@@ -14,6 +14,8 @@ export default function FormArticulos({ updateArticulos, editing, editId, catego
         descuento: 0,
         etiquetas: [],
         generos: [],
+        plataforma: "",
+        fabricante: "",
     });
     const [image, setImage] = useState(null);
     const [errorMsg, setErrorMsg] = useState("");
@@ -71,12 +73,14 @@ export default function FormArticulos({ updateArticulos, editing, editId, catego
             descuento: 0,
             etiquetas: [],
             generos: [],
+            plataforma: "",
+            fabricante: "",
         });
     }
 
     const createProduct = async (event) => {
         event.preventDefault();
-        if (!inputs.nombre || !inputs.precio || !inputs.descripcion || !inputs.stock || !inputs.categoria || ((inputs.categoria.id === "98cc" || inputs.categoria.id === "095f") && inputs.generos.length === 0) || (inputs.etiquetas.filter(etiqueta => etiqueta.id === "2" || etiqueta.id === "4").length > 0 && inputs.descuento === 0)) {
+        if (!inputs.nombre || !inputs.precio || !inputs.descripcion || !inputs.stock || !inputs.categoria|| !inputs.fabricante || ((inputs.categoria.id === "98cc" || inputs.categoria.id === "095f") && (inputs.generos.length === 0 || !inputs.plataforma)) || (inputs.etiquetas.filter(etiqueta => etiqueta.id === "2" || etiqueta.id === "4").length > 0 && inputs.descuento === 0)) {
             setErrorMsg("Debes rellenar todos los campos no opcionales");
             return;
         }
@@ -98,7 +102,7 @@ export default function FormArticulos({ updateArticulos, editing, editId, catego
 
     const editProduct = async (event) => {
         event.preventDefault();
-        if (!inputs.nombre || !inputs.precio || !inputs.descripcion || !inputs.stock || !inputs.categoria || ((inputs.categoria.id === "98cc" || inputs.categoria.id === "095f") && inputs.generos.length === 0) || (inputs.etiquetas.filter(etiqueta => etiqueta.id === "2" || etiqueta.id === "4").length > 0 && inputs.descuento === 0)) {
+        if (!inputs.nombre || !inputs.precio || !inputs.descripcion || !inputs.stock || !inputs.categoria || !inputs.fabricante || ((inputs.categoria.id === "98cc" || inputs.categoria.id === "095f") && (inputs.generos.length === 0 || !inputs.plataforma)) || (inputs.etiquetas.filter(etiqueta => etiqueta.id === "2" || etiqueta.id === "4").length > 0 && inputs.descuento === 0)) {
             setErrorMsg("Debes rellenar todos los campos no opcionales");
             return;
         }
@@ -133,6 +137,10 @@ export default function FormArticulos({ updateArticulos, editing, editId, catego
                 <input type="text" id="descripcion" name="descripcion" value={inputs.descripcion} onChange={handleChange} className="w-full p-2 border rounded-lg" />
             </div>
             <div>
+                <label htmlFor="fabricante" className="block text-gray-700">Fabricante/Desarrollador:</label>
+                <input type="number" id="fabricante" name="fabricante" value={inputs.fabricante} onChange={handleChange} className="w-full p-2 border rounded-lg" />
+            </div>
+            <div>
                 <label htmlFor="stock" className="block text-gray-700">Stock:</label>
                 <input type="number" id="stock" name="stock" value={inputs.stock} onChange={handleChange} className="w-full p-2 border rounded-lg" />
             </div>
@@ -158,15 +166,22 @@ export default function FormArticulos({ updateArticulos, editing, editId, catego
                 <label htmlFor="descuento" className="block text-gray-700">Descuento:</label>
                 <input type="number" id="descuento" name="descuento" min="0" max="99" value={inputs.descuento} onChange={handleChange} className="w-full p-2 border rounded-lg" />
             </div>}
-            {inputs.categoria && (inputs.categoria.id === "98cc" || inputs.categoria.id === "095f") && <div>
-                <label className="block text-gray-700">Géneros:</label>
-                <Select
-                    isMulti
-                    options={generos.map(generos => ({ value: generos, label: generos.name }))}
-                    onChange={(selectedOptions) => handleMultiSelectChange(selectedOptions, "generos")}
-                    className="w-full"
-                />
-            </div>}
+            {inputs.categoria && (inputs.categoria.id === "98cc" || inputs.categoria.id === "095f") && 
+            <>
+                <div>
+                    <label htmlFor="plataforma" className="block text-gray-700">Plataforma:</label>
+                    <input type="number" id="plataforma" name="plataforma" value={inputs.plataforma} onChange={handleChange} className="w-full p-2 border rounded-lg" />
+                </div>
+                <div>
+                    <label className="block text-gray-700">Géneros:</label>
+                    <Select
+                        isMulti
+                        options={generos.map(generos => ({ value: generos, label: generos.name }))}
+                        onChange={(selectedOptions) => handleMultiSelectChange(selectedOptions, "generos")}
+                        className="w-full"
+                    />
+                </div>
+            </>}
             <div>
                 <ImageUploader setFile={setFile}></ImageUploader>
             </div>
