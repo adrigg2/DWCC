@@ -3,12 +3,15 @@
     - Registro (Done)
     - Login (Done)
     - Rutas protegidas (Done)
+- Página principal
 - Tienda
-    - Carrito
-    - Artículos
+    - Carrito (Done)
+    - Artículos (WIP)
+        - Página articulos (Done)
+        - Página artículo específico
     - Filtro
     - "Pago"
-- Admin (Done)
+- Admin (WIP)
     - Gestión categorias (Done)
         - Añadir (Done)
         - Eliminar (Done)
@@ -28,3 +31,4 @@
         - Cambiar roles
         - Vetar usuarios
 - Mejorar estilos
+- Añadir los productos (robar de game.es)

@@ -26,6 +26,9 @@ export default function Navbar() {
                             </li>
                             }
                             <li>
+                                <Link href="/cart" className="hover:underline">Carrito</Link>
+                            </li>
+                            <li>
                                 <button onClick={() => {emptyCart(); logout();}} className="hover:underline">Cerrar sesión</button>
                             </li>
                         </>
