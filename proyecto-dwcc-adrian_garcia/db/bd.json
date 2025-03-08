@@ -10,6 +10,17 @@
         "id": "1",
         "name": "admin"
       }
+    },
+    {
+      "id": "ee0b",
+      "name": "Adrián",
+      "surname": "García García",
+      "email": "adriangarcia2.agg@gmail.com",
+      "password": "1234",
+      "rol": {
+        "id": "2",
+        "name": "user"
+      }
     }
   ],
   "roles": [

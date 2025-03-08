@@ -4,6 +4,8 @@
     - Login (Done)
     - Rutas protegidas (Done)
 - Página principal
+    - Producto destacado
+    - Enlaces a filtros
 - Tienda
     - Carrito (Done)
     - Artículos (WIP)
@@ -11,7 +13,7 @@
         - Página artículo específico
     - Filtro
     - "Pago"
-- Admin (WIP)
+- Admin (Done)
     - Gestión categorias (Done)
         - Añadir (Done)
         - Eliminar (Done)
@@ -27,8 +29,8 @@
         - Edición (Done)
         - Eliminación (Done)
             - Eliminación de imágenes (Done)
-    - Gestión usuarios
-        - Cambiar roles
-        - Vetar usuarios
+    - Gestión usuarios (Done)
+        - Cambiar roles (Done)
+        - Vetar usuarios (Done)
 - Mejorar estilos
 - Añadir los productos (robar de game.es)
