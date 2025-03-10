@@ -3,7 +3,7 @@
 import { useCart } from "@/context/cartContext";
 import Image from "next/image";
 
-export default function Cart() {
+const Cart = () => {
     const { cart, addToCart, removeOneFromCart, removeFromCart, emptyCart } = useCart();
 
     const calcularTotal = () => {
@@ -54,3 +54,5 @@ export default function Cart() {
         </div>
     )
 }
+
+export default withAuth(Cart, ["admin", "user"]);

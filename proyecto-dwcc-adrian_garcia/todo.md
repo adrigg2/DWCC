@@ -5,13 +5,14 @@
     - Rutas protegidas (Done)
 - Página principal
     - Producto destacado
-    - Enlaces a filtros
+    - Enlace a tienda
 - Tienda
     - Carrito (Done)
-    - Artículos (WIP)
+    - Artículos (Done)
         - Página articulos (Done)
-        - Página artículo específico
+        - Página artículo específico (Done)
     - Filtro
+        - Cambiar filtro de tabla articulos por componente
     - "Pago"
 - Admin (Done)
     - Gestión categorias (Done)
