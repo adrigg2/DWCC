@@ -12,7 +12,7 @@
         - Página articulos (Done)
         - Página artículo específico (Done)
     - Filtro
-        - Cambiar filtro de tabla articulos por componente
+        - Cambiar filtro de tabla articulos por componente (Done)
     - "Pago"
 - Admin (Done)
     - Gestión categorias (Done)
