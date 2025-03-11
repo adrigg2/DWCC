@@ -35,21 +35,6 @@
   ],
   "products": [
     {
-      "id": "b2f0",
-      "nombre": "Test",
-      "precio": "12",
-      "descripcion": "test",
-      "stock": "12",
-      "categoria": {
-        "name": "Hardware",
-        "id": "20bf"
-      },
-      "imageExtension": "jpg",
-      "descuento": 0,
-      "etiquetas": [],
-      "generos": []
-    },
-    {
       "id": "b2d2",
       "nombre": "Test",
       "precio": "13",
@@ -70,134 +55,109 @@
       "generos": []
     },
     {
-      "id": "609a",
+      "id": "8f2a",
       "nombre": "Test",
-      "precio": "32",
-      "descripcion": "test",
-      "stock": "2",
-      "categoria": {
-        "name": "Videojuego físico",
-        "id": "98cc"
-      },
-      "imageExtension": "",
-      "descuento": 0,
-      "etiquetas": [],
-      "generos": [
-        {
-          "id": "2",
-          "name": "aventura"
-        },
-        {
-          "id": "4",
-          "name": "multijugador"
-        },
-        {
-          "id": "3",
-          "name": "indie"
-        }
-      ]
-    },
-    {
-      "id": "bad6",
-      "nombre": "Test",
-      "precio": "5",
-      "descripcion": "test",
-      "stock": "3",
-      "categoria": {
-        "name": "Videojuego físico",
-        "id": "98cc"
-      },
-      "imageExtension": "png",
-      "descuento": 0,
-      "etiquetas": [],
-      "generos": [
-        {
-          "id": "2",
-          "name": "aventura"
-        },
-        {
-          "id": "3",
-          "name": "indie"
-        },
-        {
-          "id": "4",
-          "name": "multijugador"
-        }
-      ]
-    },
-    {
-      "id": "3727",
-      "nombre": "Test",
-      "precio": "12",
-      "descripcion": "test",
-      "stock": "21",
-      "categoria": {
-        "name": "Videojuego físico",
-        "id": "98cc"
-      },
-      "imageExtension": "",
-      "descuento": 0,
-      "etiquetas": [
-        {
-          "value": {
-            "id": "2",
-            "name": "oferta"
-          },
-          "label": "oferta"
-        },
-        {
-          "value": {
-            "id": "4",
-            "name": "seminuevo"
-          },
-          "label": "seminuevo"
-        }
-      ],
-      "generos": [
-        {
-          "value": {
-            "id": "3",
-            "name": "indie"
-          },
-          "label": "indie"
-        },
-        {
-          "value": {
-            "id": "4",
-            "name": "multijugador"
-          },
-          "label": "multijugador"
-        }
-      ]
-    },
-    {
-      "id": "7229",
-      "nombre": "Test",
-      "precio": "12",
+      "precio": "012",
       "descripcion": "test",
       "stock": "12",
+      "categoria": {
+        "name": "Hardware",
+        "id": "20bf"
+      },
+      "imageExtension": "",
+      "descuento": 0,
+      "etiquetas": [],
+      "generos": [],
+      "plataforma": "",
+      "fabricante": "12"
+    },
+    {
+      "id": "07cf",
+      "nombre": "Test",
+      "precio": "45",
+      "descripcion": "test",
+      "stock": "042",
       "categoria": {
         "name": "Código descarga",
         "id": "095f"
       },
       "imageExtension": "",
-      "descuento": "012",
-      "etiquetas": [
-        {
-          "id": "2",
-          "name": "oferta"
-        }
-      ],
+      "descuento": 0,
+      "etiquetas": [],
       "generos": [
         {
           "id": "2",
           "name": "aventura"
-        },
+        }
+      ],
+      "plataforma": "42",
+      "fabricante": "12"
+    },
+    {
+      "id": "d56c",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "Videojuego físico",
+        "id": "98cc"
+      },
+      "imageExtension": "",
+      "descuento": 0,
+      "etiquetas": [],
+      "generos": [
+        {
+          "id": "1",
+          "name": "accion"
+        }
+      ],
+      "plataforma": "12",
+      "fabricante": "12"
+    },
+    {
+      "id": "b4e2",
+      "nombre": "Test",
+      "precio": "45",
+      "descripcion": "test",
+      "stock": "45",
+      "categoria": {
+        "name": "Código descarga",
+        "id": "095f"
+      },
+      "imageExtension": "",
+      "descuento": 0,
+      "etiquetas": [],
+      "generos": [
         {
           "id": "3",
           "name": "indie"
         }
-      ]
+      ],
+      "plataforma": "45",
+      "fabricante": "12"
+    },
+    {
+      "id": "7ba5",
+      "nombre": "Test",
+      "precio": "12",
+      "descripcion": "test",
+      "stock": "12",
+      "categoria": {
+        "name": "Merchandasing",
+        "id": "ca94"
+      },
+      "imageExtension": "",
+      "descuento": "12",
+      "etiquetas": [
+        {
+          "id": "4",
+          "name": "seminuevo"
+        }
+      ],
+      "generos": [],
+      "plataforma": "",
+      "fabricante": "Tu madre"
     }
   ],
   "categorias": [

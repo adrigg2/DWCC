@@ -138,7 +138,7 @@ export default function FormArticulos({ updateArticulos, editing, editId, catego
             </div>
             <div>
                 <label htmlFor="fabricante" className="block text-gray-700">Fabricante/Desarrollador:</label>
-                <input type="number" id="fabricante" name="fabricante" value={inputs.fabricante} onChange={handleChange} className="w-full p-2 border rounded-lg" />
+                <input type="text" id="fabricante" name="fabricante" value={inputs.fabricante} onChange={handleChange} className="w-full p-2 border rounded-lg" />
             </div>
             <div>
                 <label htmlFor="stock" className="block text-gray-700">Stock:</label>
@@ -170,7 +170,7 @@ export default function FormArticulos({ updateArticulos, editing, editId, catego
             <>
                 <div>
                     <label htmlFor="plataforma" className="block text-gray-700">Plataforma:</label>
-                    <input type="number" id="plataforma" name="plataforma" value={inputs.plataforma} onChange={handleChange} className="w-full p-2 border rounded-lg" />
+                    <input type="text" id="plataforma" name="plataforma" value={inputs.plataforma} onChange={handleChange} className="w-full p-2 border rounded-lg" />
                 </div>
                 <div>
                     <label className="block text-gray-700">Géneros:</label>

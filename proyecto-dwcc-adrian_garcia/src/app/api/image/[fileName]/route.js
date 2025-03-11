@@ -9,7 +9,13 @@ export const DELETE = async (req, { params }) => {
     try {
         const { fileName } = await params;
 
-        await unlink(path.join(process.cwd(), "uploads/img/" + fileName));
+        const filePath = path.join(process.cwd(), "uploads/img/" + fileName);
+
+        if (!fs.existsSync(filePath)) {
+            return NextResponse.json({ error: "File not found" }, { status: 404 });
+        }
+
+        await unlink(path.join(filePath));
 
         return NextResponse.json({ message: "File deleted succesfully", status: 200 });
     } catch (error) {
