@@ -34,5 +34,7 @@
         - Cambiar roles (Done)
         - Vetar usuarios (Done)
 - Mejorar estilos
-- Añadir los productos (robar de game.es)
+    - Añadir nombre del usuario al lado de su gestion
+- Añadir los productos (robar de game.es) (Done)
 - Comprobar que el descuento se muestra correctamente
+- Documentación
