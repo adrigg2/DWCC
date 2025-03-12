@@ -35,129 +35,520 @@
   ],
   "products": [
     {
-      "id": "b2d2",
-      "nombre": "Test",
-      "precio": "13",
-      "descripcion": "test",
-      "stock": "13",
+      "id": "awl",
+      "nombre": "Story Of Seasons: A Wonderful Life",
+      "precio": "40",
+      "descripcion": "Gestiona tu granja en una fantástica comunidad en el Valle",
+      "stock": "50",
       "categoria": {
-        "name": "Accesorios",
-        "id": "56b2"
+        "name": "Videojuego físico",
+        "id": "98cc"
       },
-      "imageExtension": "png",
-      "descuento": "15",
+      "imageExtension": ".png",
+      "descuento": "20",
       "etiquetas": [
         {
           "id": "4",
           "name": "seminuevo"
         }
       ],
-      "generos": []
+      "generos": [
+        {
+          "id": "6",
+          "name": "granjas"
+        },
+        {
+          "id": "7",
+          "name": "rol"
+        },
+        {
+          "id": "9",
+          "name": "simulacion de vida"
+        }
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "Marvelous"
     },
     {
-      "id": "8f2a",
-      "nombre": "Test",
-      "precio": "012",
-      "descripcion": "test",
-      "stock": "12",
+      "id": "gtav",
+      "nombre": "Grand Theft Auto V: Premium Edition",
+      "precio": "20",
+      "descripcion": "Cuando un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se meten en problemas, deberán llevar a cabo una serie de peligrosos atracos para sobrevivir en una ciudad en la que no pueden confiar en nadie. Y mucho menos los unos en los otros.",
+      "stock": "50",
+      "categoria": {
+        "name": "Videojuego físico",
+        "id": "98cc"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+        {
+          "id": "1",
+          "name": "accion"
+        },
+        {
+          "id": "4",
+          "name": "multijugador"
+        },
+        {
+          "id": "5",
+          "name": "simulacion"
+        }
+      ],
+      "plataforma": "XBox One",
+      "fabricante": "Rockstar Games"
+    },
+    {
+      "id": "swo",
+      "nombre": "Nintendo Switch Oled Blanca",
+      "precio": "349.99",
+      "descripcion": "Consola Portátil Nintendo con pantalla Oled en color blanco",
+      "stock": "20",
       "categoria": {
         "name": "Hardware",
         "id": "20bf"
       },
-      "imageExtension": "",
-      "descuento": 0,
-      "etiquetas": [],
-      "generos": [],
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+      ],
       "plataforma": "",
-      "fabricante": "12"
+      "fabricante": "Nintendo"
     },
     {
-      "id": "07cf",
-      "nombre": "Test",
-      "precio": "45",
-      "descripcion": "test",
-      "stock": "042",
+      "id": "tof",
+      "nombre": "Tales Of Graces F Remastered",
+      "precio": "39.99",
+      "descripcion": "Los lazos de la amistad son eternos en este RPG de acción",
+      "stock": "60",
       "categoria": {
-        "name": "Código descarga",
-        "id": "095f"
+        "name": "Videojuego físico",
+        "id": "98cc"
       },
-      "imageExtension": "",
-      "descuento": 0,
-      "etiquetas": [],
+      "imageExtension": ".png",
+      "descuento": "15",
+      "etiquetas": [
+        {
+          "id": "2",
+          "name": "oferta"
+        }
+      ],
       "generos": [
+        {
+          "id": "7",
+          "name": "rol"
+        },
+        {
+          "id": "8",
+          "name": "estrategia"
+        }
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "Bandai Namco"
+    },
+    {
+      "id": "mk8d",
+      "nombre": "Mario Kart 8 Deluxe",
+      "precio": "49.99",
+      "descripcion": "¡Disfruta de la versión definitiva de Mario Kart 8 donde quieras y cuando quieras!",
+      "stock": "60",
+      "categoria": {
+        "name": "Videojuego físico",
+        "id": "98cc"
+      },
+      "imageExtension": ".png",
+      "descuento": "30",
+      "etiquetas": [
+        {
+          "id": "2",
+          "name": "oferta"
+        }
+      ],
+      "generos": [
+        {
+          "id": "4",
+          "name": "multijugador"
+        },
+        {
+          "id": "10",
+          "name": "carreras"
+        }
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "Nintendo"
+    },
+    {
+      "id": "smbw",
+      "nombre": "Super Mario Bros Wonder",
+      "precio": "59.99",
+      "descripcion": "¡Viaja a un mundo maravilloso en Super Mario Bros Wonder!",
+      "stock": "60",
+      "categoria": {
+        "name": "Videojuego físico",
+        "id": "98cc"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+        {
+          "id": "4",
+          "name": "multijugador"
+        },
+        {
+          "id": "11",
+          "name": "plataformas"
+        }
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "Nintendo"
+    },
+    {
+      "id": "mine",
+      "nombre": "Minecraft",
+      "precio": "29.99",
+      "descripcion": "Crea, Explora, Sobrevive: Tu experiencia Minecraft más completa",
+      "stock": "60",
+      "categoria": {
+        "name": "Videojuego físico",
+        "id": "98cc"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+        {
+          "id": "3",
+          "name": "indie"
+        },
+        {
+          "id": "4",
+          "name": "multijugador"
+        },
+        {
+          "id": "12",
+          "name": "sandbox"
+        }
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "Mojang"
+    },
+    {
+      "id": "totk",
+      "nombre": "The Legend of Zelda: Tears of the Kingdom",
+      "precio": "59.99",
+      "descripcion": "¡La esperadísima secuela de Zelda ahora en los cielos!",
+      "stock": "60",
+      "categoria": {
+        "name": "Videojuego físico",
+        "id": "98cc"
+      },
+      "imageExtension": ".png",
+      "descuento": "60",
+      "etiquetas": [
+        {
+          "id": "4",
+          "name": "seminuevo"
+        }
+      ],
+      "generos": [
+        {
+          "id": "2",
+          "name": "aventura"
+        },
+        {
+          "id": "7",
+          "name": "rol"
+        }
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "Nintendo"
+    },
+    {
+      "id": "jcsw",
+      "nombre": "Joy-Con (Set Izda/Dcha) Morado - Verde",
+      "precio": "79.99",
+      "descripcion": "Set Mandos Joy-Con Nintendo Switch Morado - Verde",
+      "stock": "60",
+      "categoria": {
+        "name": "Accesorios",
+        "id": "56b2"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "Nintendo"
+    },
+    {
+      "id": "jcgw",
+      "nombre": "Soporte de Carga para Mandos Joy-Con",
+      "precio": "24.99",
+      "descripcion": "Juega y carga tus Joy-Con a la vez y que nadie te pare",
+      "stock": "60",
+      "categoria": {
+        "name": "Accesorios",
+        "id": "56b2"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "Nintendo"
+    },
+    {
+      "id": "smm3",
+      "nombre": "Super Mario Maker - Nintendo Selects",
+      "precio": "19.99",
+      "descripcion": "¡Bowsers por todas partes! ¡Cañones de monedas! ¡Casas fantasma repletas de Boo! Continúa el legado de Shigeru Miyamoto y construye tus propios niveles con Super Mario Maker, ahora en Nintendo 3DS.",
+      "stock": "60",
+      "categoria": {
+        "name": "Videojuego físico",
+        "id": "98cc"
+      },
+      "imageExtension": ".png",
+      "descuento": "50",
+      "etiquetas": [
+        {
+          "id": "4",
+          "name": "seminuevo"
+        }
+      ],
+      "generos": [
+        {
+          "id": "11",
+          "name": "plataformas"
+        }
+      ],
+      "plataforma": "Nintendo 3DS",
+      "fabricante": "Nintendo"
+    },
+    {
+      "id": "sdsw",
+      "nombre": "Memoria Sandisk 64GB microSDXC Zelda -Licencia oficial-",
+      "precio": "11.99",
+      "descripcion": "Tarjeta oficial microSDXC de SanDisk para Nintendo Switch con diseño de Zelda",
+      "stock": "60",
+      "categoria": {
+        "name": "Accesorios",
+        "id": "56b2"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "Sandisk"
+    },
+    {
+      "id": "zswc",
+      "nombre": "Bolsa de transporte PowerA Zelda TK -Licencia oficial-",
+      "precio": "16.99",
+      "descripcion": "Bolsa de transporte PowerA Zelda TK",
+      "stock": "60",
+      "categoria": {
+        "name": "Accesorios",
+        "id": "56b2"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+      ],
+      "plataforma": "Nintendo Switch",
+      "fabricante": "PowerA"
+    },
+    {
+      "id": "ps5",
+      "nombre": "PlayStation 5 Modelo Slim",
+      "precio": "549.99",
+      "descripcion": "Juega como nunca con la nueva PlayStation 5 Chasis D",
+      "stock": "3",
+      "categoria": {
+        "name": "Hardware",
+        "id": "20bf"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+      ],
+      "plataforma": "",
+      "fabricante": "Sony"
+    },
+    {
+      "id": "xos",
+      "nombre": "Xbox Series S",
+      "precio": "299.99",
+      "descripcion": "Rendimiento de nueva generación, una consola totalmente digital",
+      "stock": "15",
+      "categoria": {
+        "name": "Hardware",
+        "id": "20bf"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+      ],
+      "plataforma": "",
+      "fabricante": "Microsoft"
+    },
+    {
+      "id": "ipii",
+      "nombre": "Beyond the Ice Palace 2",
+      "precio": "29.99",
+      "descripcion": "Vuelve a ocupar tu asiento como legítimo rey",
+      "stock": "15",
+      "categoria": {
+        "name": "Videojuego físico",
+        "id": "98cc"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+        {
+          "id": "1",
+          "name": "accion"
+        },
         {
           "id": "2",
           "name": "aventura"
         }
       ],
-      "plataforma": "42",
-      "fabricante": "12"
+      "plataforma": "Nintendo Switch",
+      "fabricante": "STORYBIRD Studio"
     },
     {
-      "id": "d56c",
-      "nombre": "Test",
-      "precio": "12",
-      "descripcion": "test",
-      "stock": "12",
+      "id": "sgi",
+      "nombre": "Sugardew Island",
+      "precio": "34.99",
+      "descripcion": "Dirige tu propia tienda en este juego de granja",
+      "stock": "15",
       "categoria": {
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": "",
-      "descuento": 0,
-      "etiquetas": [],
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
       "generos": [
         {
-          "id": "1",
-          "name": "accion"
+          "id": "6",
+          "name": "granjas"
+        },
+        {
+          "id": "7",
+          "name": "rol"
+        },
+        {
+          "id": "9",
+          "name": "simulacion de vida"
         }
       ],
-      "plataforma": "12",
-      "fabricante": "12"
+      "plataforma": "PlayStation 5",
+      "fabricante": "rokaplay"
     },
     {
-      "id": "b4e2",
-      "nombre": "Test",
-      "precio": "45",
-      "descripcion": "test",
-      "stock": "45",
+      "id": "eu4",
+      "nombre": "Europa Universalis IV",
+      "precio": "49.99",
+      "descripcion": "Gobierna tu territorio y domina el mundo con libertad, profundidad y rigor histórico sin precedentes. Reescribe la historia del mundo y construye un imperio para la posteridad.",
+      "stock": "15",
       "categoria": {
         "name": "Código descarga",
         "id": "095f"
       },
-      "imageExtension": "",
-      "descuento": 0,
-      "etiquetas": [],
-      "generos": [
-        {
-          "id": "3",
-          "name": "indie"
-        }
-      ],
-      "plataforma": "45",
-      "fabricante": "12"
-    },
-    {
-      "id": "7ba5",
-      "nombre": "Test",
-      "precio": "12",
-      "descripcion": "test",
-      "stock": "12",
-      "categoria": {
-        "name": "Merchandasing",
-        "id": "ca94"
-      },
-      "imageExtension": "",
-      "descuento": "12",
+      "imageExtension": ".png",
+      "descuento": "90",
       "etiquetas": [
         {
-          "id": "4",
-          "name": "seminuevo"
+          "id": "2",
+          "name": "oferta"
         }
       ],
-      "generos": [],
-      "plataforma": "",
-      "fabricante": "Tu madre"
+      "generos": [
+        {
+          "id": "8",
+          "name": "estrategia"
+        }
+      ],
+      "plataforma": "PC",
+      "fabricante": "Paradox Interactive"
+    },
+    {
+      "id": "sdv",
+      "nombre": "Stardew Valley",
+      "precio": "13.99",
+      "descripcion": "Acabas de heredar la vieja parcela agrícola de tu abuelo de Stardew Valley. Decides partir hacia una nueva vida con unas herramientas usadas y algunas monedas. ¿Te ves capaz de vivir de la tierra y convertir estos campos descuidados en un hogar próspero?",
+      "stock": "15",
+      "categoria": {
+        "name": "Código descarga",
+        "id": "095f"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+        {
+          "id": "6",
+          "name": "granjas"
+        },
+        {
+          "id": "7",
+          "name": "rol"
+        },
+        {
+          "id": "9",
+          "name": "simulacion de vida"
+        }
+      ],
+      "plataforma": "PC",
+      "fabricante": "ConcernedApe"
+    },
+    {
+      "id": "hoi4",
+      "nombre": "Hearts of Iron IV",
+      "precio": "49.99",
+      "descripcion": "¡Tenemos la victoria al alcance de la mano! Tu capacidad para liderar tu nación es tu arma principal. En el juego de estrategia Hearts of Iron IV podrás ponerte el mando de cualquier nación de la II Guerra Mundial, el conflicto más fascinante de la historia mundial.",
+      "stock": "15",
+      "categoria": {
+        "name": "Código descarga",
+        "id": "095f"
+      },
+      "imageExtension": ".png",
+      "descuento": "0",
+      "etiquetas": [
+      ],
+      "generos": [
+        {
+          "id": "8",
+          "name": "estrategia"
+        }
+      ],
+      "plataforma": "PC",
+      "fabricante": "Paradox Interactive"
     }
   ],
   "categorias": [
@@ -216,6 +607,34 @@
     {
       "id": "5",
       "name": "simulacion"
+    },
+    {
+      "id": "6",
+      "name": "granjas"
+    },
+    {
+      "id": "7",
+      "name": "rol"
+    },
+    {
+      "id": "8",
+      "name": "estrategia"
+    },
+    {
+      "id": "9",
+      "name": "simulacion de vida"
+    },
+    {
+      "id": "10",
+      "name": "carreras"
+    },
+    {
+      "id": "11",
+      "name": "plataformas"
+    },
+    {
+      "id": "12",
+      "name": "sandbox"
     }
   ]
 }

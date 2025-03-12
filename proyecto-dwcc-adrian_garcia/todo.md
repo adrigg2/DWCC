@@ -35,3 +35,4 @@
         - Vetar usuarios (Done)
 - Mejorar estilos
 - Añadir los productos (robar de game.es)
+- Comprobar que el descuento se muestra correctamente
