@@ -64,51 +64,51 @@ export default function FormRegistro() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <main className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-gray-700 text-center mb-6">Registro</h2>
+    <div className="flex items-center justify-center min-h-screen">
+      <main className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-semibold text-gray-700 dark:text-white text-center mb-6">Registro</h2>
         <form className="space-y-4" onSubmit={registerUser}>
           <label className="block">
-            <span className="text-gray-700">Nombre:</span>
+            <span className="text-gray-700 dark:text-white">Nombre:</span>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300 bg-white dark:bg-gray-700 text-gray-700 dark:text-white"
             />
           </label>
 
           <label className="block">
-            <span className="text-gray-700">Apellido:</span>
+            <span className="text-gray-700 dark:text-white">Apellido:</span>
             <input
               type="text"
               name="surname"
               value={formData.surname}
               onChange={handleChange}
-              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300 bg-white dark:bg-gray-700 text-gray-700 dark:text-white"
             />
           </label>
 
           <label className="block">
-            <span className="text-gray-700">Email:</span>
+            <span className="text-gray-700 dark:text-white">Email:</span>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300 bg-white dark:bg-gray-700 text-gray-700 dark:text-white"
             />
           </label>
 
           <label className="block">
-            <span className="text-gray-700">Contraseña:</span>
+            <span className="text-gray-700 dark:text-white">Contraseña:</span>
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300 bg-white dark:bg-gray-700 text-gray-700 dark:text-white"
             />
           </label>
 

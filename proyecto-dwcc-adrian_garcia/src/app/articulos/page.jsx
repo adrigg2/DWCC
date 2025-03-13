@@ -1,71 +1,68 @@
 "use client";
 
 import Articulo from "@/components/articulo";
-import { useEffect, useState } from "react";
-import { db } from "@/js/api";
+import { useState } from "react";
 import Filtro from "@/components/filtro";
 
 export default function Articulos() {
     const [articulos, setArticulos] = useState([]);
-    const [filter, setFilter] = useState({
-        categoria: null,
-        etiquetas: [],
-        generos: [],
-        search: "",
-    });
-
-    useEffect(() => {
-        db.get(`/products`)
-            .then((response) => {
-                setArticulos(filterProducts(response.data));
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, [filter]);
-
-    const filterProducts = (articulos) => {
-        if (filter.categoria) {
-            articulos = articulos.filter(articulo => articulo.categoria.id === filter.categoria.id);
-        }
-
-        if (filter.etiquetas.length > 0) {
-            articulos = articulos.filter(articulo =>
-                filter.etiquetas.every(selected =>
-                    articulo.etiquetas.some(etiqueta => etiqueta.id === selected.id)
-                )
-            );
-        }
-
-        if (filter.generos.length > 0) {
-            articulos = articulos.filter(articulo =>
-                filter.generos.every(selected =>
-                    articulo.generos.some(genero => genero.id === selected.id)
-                )
-            );
-        }
-
-        if (filter.search) {
-            articulos = articulos.filter(articulo => articulo.nombre.toLowerCase().includes(filter.search.toLowerCase()));
-        }
-
-        return articulos;
-    }
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(10);
+    const [totalPages, setTotalPages] = useState(1);
     
-    const updateFilter = (value, filter) => {
-        setFilter (prev => ({
-            ...prev,
-            [filter]: value
-        }));
+    const updateTotalPages = (length) => {
+        setTotalPages(length);
+        if (page > length) {
+            setPage(length);
+        }
     }
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-            <Filtro updateFilter={updateFilter}></Filtro>
-            {articulos.map(articulo => (
-                <Articulo articulo={articulo} key={articulo.id}></Articulo>
-            ))}
+        <div className="relative flex bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+            <div className="fixed left-0 top-16 h-full w-64 bg-white dark:bg-gray-800 shadow-lg p-4 hidden md:block">
+                <Filtro 
+                page={page} 
+                perPage={perPage} 
+                setPerPage={setPerPage} 
+                setTotalPages={updateTotalPages} 
+                setArticulos={setArticulos} 
+                articulos={articulos} 
+                />
+            </div>
+
+            <div className={`ml-0 md:ml-64 p-4 w-full`}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {articulos.map((articulo) => (
+                <Articulo articulo={articulo} key={articulo.id} />
+                ))}
+            </div>
+
+            {totalPages > 1 && (
+                <div className="mt-4 flex justify-center space-x-4">
+                <button 
+                    onClick={() => setPage(page - 1)} 
+                    disabled={page <= 1} 
+                    className={`py-2 px-4 rounded-lg transition text-white 
+                        ${page <= 1 
+                        ? "bg-blue-400 dark:bg-blue-600 opacity-50 cursor-not-allowed" 
+                        : "bg-blue-500 hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-600"}`}
+                >
+                    Anterior
+                </button>
+
+                <button 
+                    onClick={() => setPage(page + 1)} 
+                    disabled={page >= totalPages} 
+                    className={`py-2 px-4 rounded-lg transition text-white 
+                        ${page >= totalPages 
+                        ? "bg-blue-400 dark:bg-blue-600 opacity-50 cursor-not-allowed" 
+                        : "bg-blue-500 hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-600"}`}
+                >
+                    Siguiente
+                </button>
+                </div>
+            )}
+            </div>
         </div>
     )
 }

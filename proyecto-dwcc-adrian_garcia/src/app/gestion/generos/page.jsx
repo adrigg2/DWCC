@@ -4,6 +4,7 @@ import { db } from "@/js/api";
 import withAuth from "@/components/security/withAuth";
 import FormGestion from "@/components/gestion/formGestion";
 import TablaGestion from "@/components/gestion/tablaGestion";
+import Swal from "sweetalert2";
 
 const Generos = () => {
     const [generos, setGeneros] = useState([]);
@@ -27,7 +28,21 @@ const Generos = () => {
             });
     }
 
-    const deleteItem = (id) => {
+    const deleteItem = async (id) => {
+        const resultado = await Swal.fire({
+            title: 'Confirmación',
+            html: `¿Quieres eliminar el género con id ${id}?<br><br>Esta acción no se puede deshacer.`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        });
+
+        if (!resultado.isConfirmed) {
+            return;
+        }
         db.delete(`/generos/${id}`)
             .then(() => {
                 console.log("Género eliminado");
@@ -37,7 +52,7 @@ const Generos = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 p-8">
+        <div className="min-h-screen p-8">
             <h1 className="text-3xl font-bold text-center mb-6">Géneros</h1>
             <FormGestion itemName={"generos"}></FormGestion>
             <TablaGestion items={generos} page={page} perPage={perPage} totalPages={totalPages} setPage={setPage} setPerPage={setPerPage} deleteItem={deleteItem}></TablaGestion>

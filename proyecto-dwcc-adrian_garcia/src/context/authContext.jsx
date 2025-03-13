@@ -14,13 +14,11 @@ export const AuthProvider = ({ children }) => {
         const user = users.data.find(user => user.email === email);
 
         if (!user) {
-            console.error('Usuario no encontrado');
-            return;
+            throw new Error('Usuario no encontrado');
         }
 
         if (user.password !== password) {
-            console.error('Contraseña incorrecta');
-            return;
+            throw new Error('Contraseña incorrecta');
         }
 
         setUser(user);

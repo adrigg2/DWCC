@@ -37,10 +37,10 @@ export default function FormGestion({ itemName }) {
     }
 
     return (
-        <form onSubmit={createItem} className="bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto space-y-4">
+        <form onSubmit={createItem} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-lg mx-auto space-y-4">
             <div>
-                <label htmlFor="nombre" className="block text-gray-700">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" value={inputs.nombre} onChange={handleChange} className="w-full p-2 border rounded-lg" />
+                <label htmlFor="nombre" className="block text-gray-700 dark:text-white">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value={inputs.nombre} onChange={handleChange} className="w-full p-2 border rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-white dark:border-gray-600" />
             </div>
             {errorMsg && <p className="text-red-500">{errorMsg}</p>}
             <input type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition" value={`Agregar ${itemName.substring(0, itemName.length - 1)}`}/>

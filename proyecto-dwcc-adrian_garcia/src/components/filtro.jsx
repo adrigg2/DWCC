@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { db } from "@/js/api";
 import Select from "react-select";
@@ -23,7 +25,13 @@ export default function Filtro({ page, perPage, setPerPage, setTotalPages, setAr
     })
 
     useEffect(() => {
-        if (prevState.page === page && prevState.perPage === perPage && prevState.articulosLength === articulos.length && prevState.categoria === filter.categoria && prevState.etiquetas === filter.etiquetas && prevState.generos === filter.generos && prevState.buscar === filter.buscar) {
+        if (prevState.page === page && 
+            prevState.perPage === perPage && 
+            prevState.articulosLength === articulos.length && 
+            JSON.stringify(prevState.categoria) === JSON.stringify(filter.categoria) && 
+            JSON.stringify(prevState.etiquetas) === JSON.stringify(filter.etiquetas) && 
+            JSON.stringify(prevState.generos) === JSON.stringify(filter.generos) && 
+            prevState.buscar === filter.buscar) {
             return;
         }
 
@@ -106,44 +114,121 @@ export default function Filtro({ page, perPage, setPerPage, setTotalPages, setAr
             .catch((error) => {
                 console.error(error);
             });
-    });
+    }, []);
 
     return (
-        <div className="flex justify-center p-4">
-            <label htmlFor="perPage">Artículos por página: </label>
-            <select id="perPage" name="perPage" value={perPage} onChange={(event) => setPerPage(event.target.value)} className="border rounded-lg p-2">
+        <div className="flex flex-wrap items-center justify-between p-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+            <div className="flex items-center space-x-2">
+                <label htmlFor="perPage" className="text-gray-700 dark:text-white font-medium">Artículos por página:</label>
+                <select 
+                id="perPage" 
+                name="perPage" 
+                value={perPage} 
+                onChange={(event) => setPerPage(Number(event.target.value))} 
+                className="border border-gray-300 dark:border-gray-600 rounded-lg p-2 bg-white dark:bg-gray-700 text-gray-700 dark:text-white"
+                >
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="20">25</option>
                 <option value="50">50</option>
-            </select>
+                </select>
+            </div>
+
             <input
                 type="text"
                 placeholder="Buscar..."
-                className="p-2 border border-gray-300 rounded-lg"
+                className="p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-white w-60"
                 onChange={(e) => updateFilter(e.target.value, "buscar")}
             />
-            <label htmlFor="perPage">Categoría: </label>
-            <select id="perPage" name="perPage" value={JSON.stringify(filter.categoria)} onChange={(event) => updateFilter(event.target.value === "" ? "" : JSON.parse(event.target.value), "categoria")} className="border rounded-lg p-2">
+
+            <div className="items-center space-x-2">
+                <label htmlFor="categoria" className="text-gray-700 dark:text-white font-medium">Categoría:</label>
+                <select 
+                id="categoria" 
+                name="categoria" 
+                value={JSON.stringify(filter.categoria)} 
+                onChange={(event) => updateFilter(event.target.value === "" ? "" : JSON.parse(event.target.value), "categoria")} 
+                className="border border-gray-300 dark:border-gray-600 rounded-lg p-2 bg-white dark:bg-gray-700 text-gray-700 dark:text-white"
+                >
                 <option value="">Todas</option>
                 {categorias.map(categoria => (
-                    <option key={categoria.id} value={JSON.stringify(categoria)}>{ categoria.name }</option>
+                    <option key={categoria.id} value={JSON.stringify(categoria)}>{categoria.name}</option>
                 ))}
-            </select>
-            <label className="block text-gray-700">Etiquetas:</label>
-            <Select
-                isMulti
-                options={etiquetas.map(etiqueta => ({ value: etiqueta, label: etiqueta.name }))}
-                onChange={(selectedOptions) => updateFilter(selectedOptions ? selectedOptions.map(option => option.value) : [], "etiquetas")}
-                className="w-full"
-            />
-            <label className="block text-gray-700">Géneros:</label>
-            <Select
-                isMulti
-                options={generos.map(generos => ({ value: generos, label: generos.name }))}
-                onChange={(selectedOptions) => updateFilter(selectedOptions ? selectedOptions.map(option => option.value) : [], "generos")}
-                className="w-full"
-            />
+                </select>
+            </div>
+
+            <div className="w-64">
+                <label className="block text-gray-700 dark:text-white font-medium mb-1">Etiquetas:</label>
+                <Select
+                    id="etiquetas"
+                    isMulti
+                    options={etiquetas.map(etiqueta => ({ value: etiqueta, label: etiqueta.name }))}
+                    onChange={(selectedOptions) => updateFilter(selectedOptions ? selectedOptions.map(option => option.value) : [], "etiquetas")}
+                    className="w-full text-gray-700 dark:text-white"
+                    styles={{
+                        control: (base) => ({
+                            ...base,
+                            backgroundColor: 'rgb(55, 65, 81)', // dark background color for dark mode
+                            color: 'white',  // text color
+                            borderColor: 'rgb(107, 114, 128)', // border color in dark mode
+                        }),
+                        menu: (base) => ({
+                            ...base,
+                            backgroundColor: 'rgb(55, 65, 81)', // dark background for the dropdown menu
+                        }),
+                        singleValue: (base) => ({
+                            ...base,
+                            color: 'white',  // text color for selected value
+                        }),
+                        option: (base, state) => ({
+                            ...base,
+                            backgroundColor: state.isSelected ? 'rgb(31, 41, 55)' : base.backgroundColor, // dark highlight for selected option
+                            color: state.isSelected ? 'white' : 'gray', // color change when selected
+                            '&:hover': {
+                                backgroundColor: 'rgb(31, 41, 55)', // hover effect in dark mode
+                                color: 'white', // text color on hover
+                            },
+                        }),
+                    }}
+        />
+            </div>
+
+            <div className="w-64">
+                <label className="block text-gray-700 dark:text-white font-medium mb-1">Géneros:</label>
+                <Select
+                    id="generos"
+                    isMulti
+                    options={generos.map(genero => ({ value: genero, label: genero.name }))}
+                    onChange={(selectedOptions) => updateFilter(selectedOptions ? selectedOptions.map(option => option.value) : [], "generos")}
+                    className="w-full text-gray-700 dark:text-white"
+                    styles={{
+                        control: (base) => ({
+                            ...base,
+                            backgroundColor: 'rgb(55, 65, 81)', // dark background color for dark mode
+                            color: 'white',  // text color
+                            borderColor: 'rgb(107, 114, 128)', // border color in dark mode
+                        }),
+                        menu: (base) => ({
+                            ...base,
+                            backgroundColor: 'rgb(55, 65, 81)', // dark background for the dropdown menu
+                        }),
+                        singleValue: (base) => ({
+                            ...base,
+                            color: 'white',  // text color for selected value
+                        }),
+                        option: (base, state) => ({
+                            ...base,
+                            backgroundColor: state.isSelected ? 'rgb(31, 41, 55)' : base.backgroundColor, // dark highlight for selected option
+                            color: state.isSelected ? 'white' : 'gray', // color change when selected
+                            '&:hover': {
+                                backgroundColor: 'rgb(31, 41, 55)', // hover effect in dark mode
+                                color: 'white', // text color on hover
+                            },
+                        }),
+                    }}
+                />
+            </div>
         </div>
+
     );
 }

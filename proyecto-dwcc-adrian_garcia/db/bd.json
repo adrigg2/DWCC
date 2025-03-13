@@ -44,7 +44,7 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "20",
       "etiquetas": [
         {
@@ -79,10 +79,9 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
+      "etiquetas": [],
       "generos": [
         {
           "id": "1",
@@ -110,12 +109,10 @@
         "name": "Hardware",
         "id": "20bf"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
-      "generos": [
-      ],
+      "etiquetas": [],
+      "generos": [],
       "plataforma": "",
       "fabricante": "Nintendo"
     },
@@ -129,7 +126,7 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "15",
       "etiquetas": [
         {
@@ -160,7 +157,7 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "30",
       "etiquetas": [
         {
@@ -191,10 +188,9 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
+      "etiquetas": [],
       "generos": [
         {
           "id": "4",
@@ -218,10 +214,9 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
+      "etiquetas": [],
       "generos": [
         {
           "id": "3",
@@ -249,7 +244,7 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "60",
       "etiquetas": [
         {
@@ -280,17 +275,15 @@
         "name": "Accesorios",
         "id": "56b2"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
-      "generos": [
-      ],
+      "etiquetas": [],
+      "generos": [],
       "plataforma": "Nintendo Switch",
       "fabricante": "Nintendo"
     },
     {
-      "id": "jcgw",
+      "id": "jcgs",
       "nombre": "Soporte de Carga para Mandos Joy-Con",
       "precio": "24.99",
       "descripcion": "Juega y carga tus Joy-Con a la vez y que nadie te pare",
@@ -299,12 +292,10 @@
         "name": "Accesorios",
         "id": "56b2"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
-      "generos": [
-      ],
+      "etiquetas": [],
+      "generos": [],
       "plataforma": "Nintendo Switch",
       "fabricante": "Nintendo"
     },
@@ -318,7 +309,7 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "50",
       "etiquetas": [
         {
@@ -345,12 +336,10 @@
         "name": "Accesorios",
         "id": "56b2"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
-      "generos": [
-      ],
+      "etiquetas": [],
+      "generos": [],
       "plataforma": "Nintendo Switch",
       "fabricante": "Sandisk"
     },
@@ -364,12 +353,10 @@
         "name": "Accesorios",
         "id": "56b2"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
-      "generos": [
-      ],
+      "etiquetas": [],
+      "generos": [],
       "plataforma": "Nintendo Switch",
       "fabricante": "PowerA"
     },
@@ -383,12 +370,10 @@
         "name": "Hardware",
         "id": "20bf"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
-      "generos": [
-      ],
+      "etiquetas": [],
+      "generos": [],
       "plataforma": "",
       "fabricante": "Sony"
     },
@@ -402,12 +387,10 @@
         "name": "Hardware",
         "id": "20bf"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
-      "generos": [
-      ],
+      "etiquetas": [],
+      "generos": [],
       "plataforma": "",
       "fabricante": "Microsoft"
     },
@@ -421,10 +404,9 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
+      "etiquetas": [],
       "generos": [
         {
           "id": "1",
@@ -448,10 +430,9 @@
         "name": "Videojuego físico",
         "id": "98cc"
       },
-      "imageExtension": ".png",
+      "imageExtension": "png",
       "descuento": "0",
-      "etiquetas": [
-      ],
+      "etiquetas": [],
       "generos": [
         {
           "id": "6",
@@ -479,7 +460,7 @@
         "name": "Código descarga",
         "id": "095f"
       },
-      "imageExtension": ".png",
+      "imageExtension": "jpg",
       "descuento": "90",
       "etiquetas": [
         {
@@ -506,10 +487,9 @@
         "name": "Código descarga",
         "id": "095f"
       },
-      "imageExtension": ".png",
+      "imageExtension": "jpg",
       "descuento": "0",
-      "etiquetas": [
-      ],
+      "etiquetas": [],
       "generos": [
         {
           "id": "6",
@@ -537,10 +517,9 @@
         "name": "Código descarga",
         "id": "095f"
       },
-      "imageExtension": ".png",
+      "imageExtension": "jpg",
       "descuento": "0",
-      "etiquetas": [
-      ],
+      "etiquetas": [],
       "generos": [
         {
           "id": "8",

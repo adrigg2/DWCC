@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import Navbar from "@/components/navbar";
 import { AuthProvider } from "@/context/authContext"; 
 import { CartProvider } from "@/context/cartContext";
@@ -23,12 +24,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100 dark:bg-gray-900 text-black dark:text-white`}
       >
         <AuthProvider>
           <CartProvider>
-            <Navbar></Navbar>
-            {children}
+            <Navbar />
+            <div className="relative pt-16">  
+              {children}
+            </div>
           </CartProvider>
         </AuthProvider>
       </body>

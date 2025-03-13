@@ -4,6 +4,7 @@ import { db } from "@/js/api";
 import withAuth from "@/components/security/withAuth";
 import FormGestion from "@/components/gestion/formGestion";
 import TablaGestion from "@/components/gestion/tablaGestion";
+import Swal from "sweetalert2";
 
 const Categorias = () => {
     const [categorias, setCategorias] = useState([]);
@@ -42,7 +43,22 @@ const Categorias = () => {
             .catch(error => console.error(`Error al eliminar el artículo: ${error}`))
     }
 
-    const deleteItem = (id) => {
+    const deleteItem = async (id) => {
+        const resultado = await Swal.fire({
+            title: 'Confirmación',
+            html: `¿Quieres eliminar la categoría con id ${id}?<br>Ten en cuenta que eliminar una categoría implica la eliminación de todos los artículos que le pertenezcan<br>Esta acción no se puede deshacer.`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        });
+
+        if (!resultado.isConfirmed) {
+            return;
+        }
+
         db.delete(`/categorias/${id}`)
             .then(() => {
                 console.log("Categoría eliminada");
@@ -63,7 +79,7 @@ const Categorias = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 p-8">
+        <div className="min-h-screen p-8">
             <h1 className="text-3xl font-bold text-center mb-6">Categorías</h1>
             <FormGestion itemName={"categorias"}></FormGestion>
             <h4 className="text-center text-red-600 font-semibold bg-red-100 border border-red-400 p-2 rounded-lg">Eliminar una categoría implica la eliminación de todos los productos que pertenezcan a esa categoría</h4>
